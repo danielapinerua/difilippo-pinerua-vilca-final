@@ -1,59 +1,128 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" alt="Laravel Logo" width="200"/>
+  <h1>🌾 SintaccShop | E-Commerce Libre de Gluten 🌾</h1>
+  <p><em>La forma más segura y confiable de comprar productos 100% libres de gluten (Sin TACC)</em></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+  <!-- Badges -->
+  <img src="https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 11" />
+  <img src="https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.2" />
+  <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+</div>
 
-## About Laravel
+<br/>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📖 Sobre el Proyecto
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**SintaccShop** nace de la necesidad de ofrecer un espacio 100% seguro y de confianza para personas celíacas o con sensibilidad al gluten. Sabemos que la contaminación cruzada y la incertidumbre al momento de comprar alimentos es un gran problema en el día a día. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Este sistema resuelve este dolor ofreciendo un catálogo especializado y verificado, donde los clientes pueden comprar con total tranquilidad. Esta confianza es respaldada además por las **reseñas y calificaciones de otros miembros de la comunidad**, creando un entorno colaborativo y seguro.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🎯 Características Principales
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 👤 Cliente (Usuario Final)
+- 🛍️ **Navegación Intuitiva:** Explorar el catálogo de productos y filtrar por categorías sin complicaciones.
+- ❤️ **Lista de Deseos (Wishlist):** Guardar productos favoritos para futuras compras.
+- 🛒 **Gestión de Pedidos:** Realizar compras, definir direcciones de envío y dar seguimiento al estado de sus órdenes.
+- ⭐ **Reseñas y Confianza:** Dejar comentarios y calificar (1 a 5 estrellas) los productos adquiridos para ayudar a otros.
+- 🚚 **Gestión de Direcciones:** Guardar y administrar múltiples direcciones de entrega.
 
-## Laravel Sponsors
+### 🛡️ Administrador (Gestión de Tienda)
+- 📦 **CRUD de Productos:** Crear, leer, actualizar y eliminar artículos del inventario de forma sencilla.
+- 🏷️ **Gestión de Categorías:** Organizar los productos de forma lógica para facilitar la búsqueda.
+- 📊 **Control de Pedidos:** Gestionar el ciclo de ventas y cambiar el estado de las órdenes para reflejar el progreso del envío.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🔄 Flujo de Negocio (Estados del Pedido)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+El ciclo de vida de un pedido dentro del sistema es claro, lineal y garantiza transparencia para el comprador:
 
-## Contributing
+1. 🟡 **Pendiente:** El pedido fue creado y se encuentra a la espera de confirmación de pago.
+2. 🟢 **Pagado:** El pago ha sido procesado exitosamente y el pedido entra en etapa de preparación.
+3. 🔵 **Enviado:** El paquete ha salido del almacén y va rumbo a la dirección del cliente.
+4. ✅ **Entregado:** El pedido llegó a manos del cliente de manera satisfactoria.
+5. 🔴 **Cancelado:** *(Estado terminal)* El pedido fue anulado (por el usuario o por un administrador).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🛠️ Stack Tecnológico y Arquitectura
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Este E-commerce está construido siguiendo estrictamente las mejores prácticas y estándares de la industria moderna:
 
-## Security Vulnerabilities
+| Tecnología / Concepto | Descripción |
+| :--- | :--- |
+| **Framework Base** | 🚀 **Laravel 11** (última versión) utilizando PHP 8.2+ |
+| **Base de Datos** | 🐬 MySQL con un modelo relacional completamente normalizado |
+| **Arquitectura** | 🏗️ **Patrón MVC estricto**, separando claramente la lógica de negocio y las vistas |
+| **Frontend** | 🎨 Motor de plantillas **Blade** altamente reutilizable, integrado con **Vite** y **Tailwind CSS/Bootstrap** |
+| **ORM y Relaciones** | 🔗 **Eloquent ORM** con relaciones completas (cero uso de *raw queries*) |
+| **Seguridad** | 🛡️ Uso de **Form Requests** para validación robusta y **Middlewares** para Autenticación y Control de Roles |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 🌐 Componente API REST Adicional
+El sistema expone de forma paralela tres (3) *endpoints* RESTful para la integración con clientes externos (probados exitosamente con Postman):
+- `GET /api/products` - Lista el catálogo completo de productos.
+- `GET /api/products/{id}` - Obtiene el detalle de un producto en específico.
+- `GET /api/orders` - Lista el historial de órdenes del usuario autenticado.
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🚀 Instalación y Configuración Local
+
+Sigue este paso a paso infalible para levantar el proyecto en tu entorno local.
+
+**1. Clonar el repositorio y acceder al directorio:**
+```bash
+git clone https://github.com/tu-usuario/sintaccshop.git
+cd sintaccshop
+```
+
+**2. Instalar las dependencias de PHP y Node.js:**
+```bash
+composer install
+npm install
+```
+
+**3. Configurar variables de entorno (.env):**
+Copia el archivo de ejemplo para crear tu entorno local y genera la clave segura de la aplicación.
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+> ⚠️ **Importante:** Recuerda abrir el archivo `.env` y configurar tus credenciales de base de datos MySQL (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`).
+
+**4. Migrar y popular la base de datos (Seeders):**
+Este comando creará todas las tablas (Entidades: Usuarios, Categorías, Productos, Pedidos, Detalles, Reseñas, Wishlist y Direcciones) y las poblará con datos falsos de prueba.
+```bash
+php artisan migrate --seed
+```
+
+**5. Compilar los assets del Frontend (Vite):**
+```bash
+npm run dev
+```
+
+**6. Levantar el servidor local (en una terminal separada):**
+```bash
+php artisan serve
+```
+¡Listo! 🎉 El sistema estará disponible ingresando a `http://localhost:8000`.
+
+---
+
+## 🔑 Credenciales de Prueba
+
+Al ejecutar los *seeders* (`--seed`) en el paso 4, se generan usuarios predeterminados con roles específicos para que puedas probar el sistema y sus flujos de inmediato.
+
+| Rol | Correo Electrónico (Email) | Contraseña (Password) |
+| :--- | :--- | :--- |
+| 🛡️ **Administrador** | `admin@sintaccshop.com` | `password` |
+| 👤 **Cliente** | `cliente@sintaccshop.com` | `password` |
+
+<br/>
+
+<div align="center">
+  <strong>Hecho con ❤️ para brindar confianza a la comunidad celíaca.</strong>
+</div>
