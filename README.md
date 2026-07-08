@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" alt="Laravel Logo" width="200"/>
-  <h1>🌾 SintaccShop | E-Commerce Libre de Gluten 🌾</h1>
-  <p><em>La forma más segura y confiable de comprar productos 100% libres de gluten (Sin TACC)</em></p>
+  <h1>🌾 E-Commerce Sin TACC 🌾</h1>
+  <p><em>La forma más segura y confiable de comprar productos 100% sin TACC</em></p>
 
   <!-- Badges -->
   <img src="https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 11" />
@@ -14,9 +14,9 @@
 
 ## 📖 Sobre el Proyecto
 
-**SintaccShop** nace de la necesidad de ofrecer un espacio 100% seguro y de confianza para personas celíacas o con sensibilidad al gluten. Sabemos que la contaminación cruzada y la incertidumbre al momento de comprar alimentos es un gran problema en el día a día. 
+Este **E-Commerce** nace de la necesidad de ofrecer un espacio 100% seguro y de confianza para personas celíacas o con sensibilidad. Sabemos que la contaminación cruzada y la incertidumbre al momento de comprar alimentos es un gran problema en el día a día. 
 
-Este sistema resuelve este dolor ofreciendo un catálogo especializado y verificado, donde los clientes pueden comprar con total tranquilidad. Esta confianza es respaldada además por las **reseñas y calificaciones de otros miembros de la comunidad**, creando un entorno colaborativo y seguro.
+Este sistema resuelve este dolor ofreciendo un catálogo especializado y verificado de productos sin TACC, donde los clientes pueden comprar con total tranquilidad. Esta confianza es respaldada además por las **reseñas y calificaciones de otros miembros de la comunidad**, creando un entorno colaborativo y seguro.
 
 ---
 
@@ -75,8 +75,8 @@ Sigue este paso a paso infalible para levantar el proyecto en tu entorno local.
 
 **1. Clonar el repositorio y acceder al directorio:**
 ```bash
-git clone https://github.com/tu-usuario/sintaccshop.git
-cd sintaccshop
+git clone https://github.com/tu-usuario/ecommerce-sin-tacc.git
+cd ecommerce-sin-tacc
 ```
 
 **2. Instalar las dependencias de PHP y Node.js:**
@@ -118,8 +118,8 @@ Al ejecutar los *seeders* (`--seed`) en el paso 4, se generan usuarios predeterm
 
 | Rol | Correo Electrónico (Email) | Contraseña (Password) |
 | :--- | :--- | :--- |
-| 🛡️ **Administrador** | `admin@sintaccshop.com` | `password` |
-| 👤 **Cliente** | `cliente@sintaccshop.com` | `password` |
+| 🛡️ **Administrador** | `admin@ecommerce.com` | `password` |
+| 👤 **Cliente** | `cliente@ecommerce.com` | `password` |
 
 <br/>
 
