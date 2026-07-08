@@ -7,7 +7,8 @@
   <img src="https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 11" />
   <img src="https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.2" />
   <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
 </div>
 
 <br/>
@@ -57,7 +58,7 @@ Este E-commerce está construido siguiendo estrictamente las mejores prácticas 
 | **Framework Base** | 🚀 **Laravel 11** (última versión) utilizando PHP 8.2+ |
 | **Base de Datos** | 🐬 MySQL con un modelo relacional completamente normalizado |
 | **Arquitectura** | 🏗️ **Patrón MVC estricto**, separando claramente la lógica de negocio y las vistas |
-| **Frontend** | 🎨 Motor de plantillas **Blade** altamente reutilizable, integrado con **Vite** y **Tailwind CSS/Bootstrap** |
+| **Frontend** | 🎨 Motor de plantillas **Blade** integrado con **Vite**, estilizado mediante **Bootstrap** y **CSS Puro** |
 | **ORM y Relaciones** | 🔗 **Eloquent ORM** con relaciones completas (cero uso de *raw queries*) |
 | **Seguridad** | 🛡️ Uso de **Form Requests** para validación robusta y **Middlewares** para Autenticación y Control de Roles |
 
