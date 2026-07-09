@@ -1,0 +1,63 @@
+.stc-footer {
+  background: var(--cafe-noir);
+  color: rgba(242, 233, 218, 0.85);
+  padding: 4rem 6vw 2rem;
+}
+
+.stc-footer-top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(242, 233, 218, 0.15);
+}
+
+.stc-footer-brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.stc-footer-brand-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--bone);
+  font-size: 1.05rem;
+}
+
+.stc-footer-brand-tag {
+  font-size: 0.85rem;
+  color: rgba(242, 233, 218, 0.65);
+  margin-top: 0.3rem;
+  max-width: 28ch;
+}
+
+.stc-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.stc-footer-col .eyebrow {
+  color: var(--tan);
+  margin-bottom: 0.3rem;
+}
+
+.stc-footer-col a {
+  font-size: 0.9rem;
+  color: rgba(242, 233, 218, 0.75);
+  transition: color 0.2s ease;
+}
+
+.stc-footer-col a:hover { color: var(--tan); }
+
+.stc-footer-bottom {
+  padding-top: 1.6rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(242, 233, 218, 0.5);
+}
+
+@media (max-width: 700px) {
+  .stc-footer-top { grid-template-columns: 1fr; gap: 2rem; }
+}

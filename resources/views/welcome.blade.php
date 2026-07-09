@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>@yield('title', 'Sin TACC Market')</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/home_landing/home.css') }}">
+    @stack('styles')
 </head>
 <body>
-    <h1>Inicio del Sistema</h1>
 
-    @auth
-        <h2>Bienvenido, {{ Auth::user()->nombre ?? Auth::user()->name }}!</h2>
-        
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit">Cerrar Sesión</button>
-        </form>
-    @endauth
+    <div class="stc-landing">
 
-    @guest
-        <p>No estás logueado.</p>
-        <a href="{{ route('login') }}">Ir a Iniciar Sesión</a>
-    @endguest
+        @include('layouts.header')
+
+        <main>
+            @yield('content')
+        </main>
+
+        @include('layouts.footer')
+
+    </div>
+    
+    @stack('styles')
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    @stack('scripts')
 </body>
 </html>

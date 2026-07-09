@@ -3,9 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
+Route::get('/landing', function () {
+    return view('home_landing.home');
+});
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::middleware('guest')->group(function () {
     Route::view('/login', 'auth.login')->name('login');
