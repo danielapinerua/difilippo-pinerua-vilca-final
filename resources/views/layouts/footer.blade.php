@@ -15,9 +15,9 @@
 
     <div class="stc-footer-col">
       <span class="eyebrow">Mercado</span>
-      <a href="{{ url('/landing') }}#categorias">Panificados</a>
-      <a href="{{ url('/landing') }}#categorias">Snacks</a>
-      <a href="{{ url('/landing') }}#categorias">Despensa</a>
+      <a href="{{ route('home') }}#categorias">Panificados</a>
+      <a href="{{ route('home') }}#categorias">Snacks</a>
+      <a href="{{ route('home') }}#categorias">Despensa</a>
     </div>
 
     <div class="stc-footer-col">

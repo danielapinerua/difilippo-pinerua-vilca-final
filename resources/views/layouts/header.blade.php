@@ -17,8 +17,8 @@
     <div class="collapse navbar-collapse" id="stcNavMenu">
 
       <ul class="navbar-nav mx-auto mb-3 mb-lg-0 stc-nav-links">
-        <li class="nav-item"><a class="nav-link" href="{{ url('/landing') }}#categorias">Categorías</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ url('/landing') }}#nutricion">Por qué elegirnos</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#categorias">Categorías</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#nutricion">Por qué elegirnos</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Envíos</a></li>
       </ul>
 

@@ -3,12 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
-Route::get('/landing', function () {
-    return view('home_landing.home');
-});
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('home_landing.home');
 })->name('home');
 
 Route::middleware('guest')->group(function () {
