@@ -46,10 +46,14 @@
 .stc-footer-col a {
   font-size: 0.9rem;
   color: rgba(242, 233, 218, 0.75);
-  transition: color 0.2s ease;
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.stc-footer-col a:hover { color: var(--tan); }
+.stc-footer-col a:hover { 
+  color: var(--tan); 
+}
 
 .stc-footer-bottom {
   padding-top: 1.6rem;
