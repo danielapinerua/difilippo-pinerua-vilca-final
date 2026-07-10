@@ -25,16 +25,29 @@
         </thead>
         <tbody>
             @forelse($categories as $category)
-                <tr>
+                <tr style="{{ $category->trashed() ? 'background-color: #f8d7da; color: #721c24;' : '' }}">
                     <td>{{ $category->id }}</td>
-                    <td>{{ $category->name }}</td>
                     <td>
-                        <a href="{{ route('categories.edit', $category->id) }}">Editar</a> | 
-                        <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" onclick="return confirm('¿Estás seguro de eliminar esta categoría?')">Eliminar</button>
-                        </form>
+                        {{ $category->name }}
+                        @if($category->trashed())
+                            <strong>(Eliminada)</strong>
+                        @endif
+                    </td>
+                    <td>
+                        @if($category->trashed())
+                            <form action="{{ route('categories.restore', $category->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit" onclick="return confirm('¿Estás seguro de restaurar esta categoría?')">Restaurar</button>
+                            </form>
+                        @else
+                            <a href="{{ route('categories.edit', $category->id) }}">Editar</a> | 
+                            <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="return confirm('¿Estás seguro de eliminar esta categoría?')">Eliminar</button>
+                            </form>
+                        @endif
                     </td>
                 </tr>
             @empty

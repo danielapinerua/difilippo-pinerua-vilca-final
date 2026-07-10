@@ -53,4 +53,10 @@ class CategoryController extends Controller
         $this->categoryService->deleteCategory($id);
         return redirect()->route('categories.index')->with('success', 'Categoría eliminada con éxito.');
     }
+
+    public function restore(int $id): RedirectResponse
+    {
+        $this->categoryService->restoreCategory($id);
+        return redirect()->route('categories.index')->with('success', 'Categoría restaurada con éxito.');
+    }
 }

@@ -9,7 +9,7 @@ class CategoryService
 {
     public function getAllCategories(): Collection
     {
-        return Category::all();
+        return Category::withTrashed()->get();
     }
 
     public function createCategory(array $data): Category
@@ -33,6 +33,12 @@ class CategoryService
     public function deleteCategory(int $id): void
     {
         $category = $this->getCategoryById($id);
-        $category->delete($id);
+        $category->delete();
+    }
+
+    public function restoreCategory(int $id): void
+    {
+        $category = Category::withTrashed()->findOrFail($id);
+        $category->restore();
     }
 }
