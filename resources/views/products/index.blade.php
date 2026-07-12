@@ -25,6 +25,7 @@
                 <th>Descripción</th>
                 <th>Precio</th>
                 <th>Stock</th>
+                <th>Imagen</th> <!-- 👈 nuevo -->
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -36,6 +37,13 @@
                     <td>{{ $product->description }}</td>
                     <td>${{ $product->price }}</td>
                     <td>{{ $product->stock }}</td>
+                    <td>
+                        @if($product->image)
+                        <img src="{{ asset('storage/' . $product->image) }}" width="80">
+                        @else
+                            Sin imagen
+                        @endif
+                    </td>
                     <td>
                         <a href="{{ route('products.edit', $product->id) }}">Editar</a> | 
                         

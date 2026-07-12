@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\ProductService;
 use App\Http\Requests\ProductRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -27,9 +28,15 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        $this->productService->createProduct($request->validated());
+        $data = $request->validated();
+        // 👉 si hay imagen
+        if ($request->hasFile('image')) {
+        $path = $request->file('image')->store('products', 'public');
+        $data['image'] = $path;
+        }
+        $this->productService->createProduct($data);
         return redirect()->route('products.index');
-    }
+        }
 
     public function edit($id)
     {
@@ -39,9 +46,14 @@ class ProductController extends Controller
 
     public function update(ProductRequest $request, $id)
     {
-        $this->productService->updateProduct($id, $request->validated());
-        return redirect()->route('products.index');
-    }
+        $data = $request->validated();
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('products', 'public');
+            $data['image'] = $path;
+            }
+            $this->productService->updateProduct($id, $data);
+            return redirect()->route('products.index');
+            }
 
     public function destroy($id)
     {
