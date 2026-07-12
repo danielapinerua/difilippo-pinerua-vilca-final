@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('home_landing.home');
 })->name('home');
+Route::view('/about', 'pages.about')->name('about');
 
 Route::middleware('guest')->group(function () {
     Route::view('/login', 'auth.login')->name('login');

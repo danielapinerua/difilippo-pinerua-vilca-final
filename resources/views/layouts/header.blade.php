@@ -19,6 +19,7 @@
       <ul class="navbar-nav mx-auto mb-3 mb-lg-0 stc-nav-links">
         <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#categorias">Categorías</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#nutricion">Por qué elegirnos</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('about') }}#about">Sobre Nosotros</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Envíos</a></li>
       </ul>
 
