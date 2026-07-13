@@ -1,7 +1,3 @@
-@push('styles')
-<link rel="stylesheet" href="{{ asset('css/layouts/header.css') }}">
-@endpush
-
 <nav class="navbar navbar-expand-lg stc-nav">
   <div class="container-fluid px-3 px-lg-5">
 

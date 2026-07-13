@@ -1,8 +1,3 @@
-
-@push('styles')
-<link rel="stylesheet" href="{{ asset('css/layouts/footer.css') }}">
-@endpush
-
 <footer class="stc-footer">
   <div class="stc-footer-top">
     <div class="stc-footer-brand">

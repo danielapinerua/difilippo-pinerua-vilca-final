@@ -1,12 +1,19 @@
 @extends('welcome')
 
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/pages/about.css') }}">
+@endpush
+
 @section('title', 'Sobre Nosotros — Sin TACC Market')
 
 @section('content')
 
+<div class="page-about">
+
   {{-- HERO --}}
   <section class="stc-hero" id="about">
     <div class="stc-hero-copy">
+      <div class="stc-hero-badge">Desde<br>2023</div>
       <span class="eyebrow">Conocenos</span>
       <h1>Sobre <em>nosotros</em></h1>
       <p class="stc-hero-lead">
@@ -63,23 +70,32 @@
     </div>
 
     <div class="stc-cat-grid">
-      
+
       <div class="stc-cat-card">
-        <p>“Antes me costaba muchísimo encontrar productos sin TACC. Esta página me facilitó todo.”</p>
-        <strong>— Daniela, 20 años</strong>
+        <p>"Antes me costaba muchísimo encontrar productos sin TACC. Esta página me facilitó todo."</p>
+        <strong data-initial="D">Daniela, 20 años</strong>
       </div>
 
       <div class="stc-cat-card">
-        <p>“Ahora puedo comprar tranquilo sabiendo que todo es seguro para mi dieta.”</p>
-        <strong>— Marcos, 19 años</strong>
+        <p>"Ahora puedo comprar tranquilo sabiendo que todo es seguro para mi dieta."</p>
+        <strong data-initial="M">Marcos, 19 años</strong>
       </div>
 
       <div class="stc-cat-card">
-        <p>“Hay mucha variedad y eso es clave cuando sos celíaco.”</p>
-        <strong>— Gianluca, 24 años</strong>
+        <p>"Hay mucha variedad y eso es clave cuando sos celíaco."</p>
+        <strong data-initial="G">Gianluca, 24 años</strong>
       </div>
 
     </div>
   </section>
+
+  {{-- CIERRE / CTA --}}
+  <section class="stc-about-cta">
+    <span class="eyebrow">Empezá hoy</span>
+    <h2>Descubrí todo lo que tenemos para vos</h2>
+    <a href="{{ route('home') }}#categorias" class="stc-btn stc-btn-primary">Ver el mercado</a>
+  </section>
+
+</div>
 
 @endsection

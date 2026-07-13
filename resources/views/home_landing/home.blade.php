@@ -2,7 +2,13 @@
 
 @section('title', 'Sin TACC Market — Comida real, sin gluten')
 
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/home_landing/home.css') }}">
+@endpush
+
 @section('content')
+
+<div class="page-home">
 
   <section class="stc-hero">
     <div class="stc-hero-copy">
@@ -109,5 +115,7 @@
       <a href="#categorias" class="stc-btn stc-btn-primary">Explorar el mercado</a>
     </div>
   </section>
+
+</div>
 
 @endsection

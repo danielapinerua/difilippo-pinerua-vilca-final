@@ -4,29 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - E-commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/login/login.css') }}">
 </head>
 <body>
-    {{-- @extends('layouts.layout') --}}
-    {{-- @section('title', 'Login') --}}
-    {{-- @push('styles')  <link rel="stylesheet" href="{{ asset('css/login.css') }}">@endpush --}}
+    <div class="d-flex align-items-center justify-content-center min-vh-100 login-bg px-3">
+        <div class="login-container col-12 col-sm-8 col-md-6 col-lg-4">
+            <h2 class="text-center mb-4">Login</h2>
 
-    {{-- @section('content') --}}
-    <div class="login-container">
-        <h2>Login</h2>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+                <div class="mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
+                </div>
 
-            <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
-            <input type="password" name="password" placeholder="Password" required>
+                <div class="mb-3">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                </div>
 
-            @error('email')
-                <p class="error-msg" style="color: red;">{{ $message }}</p>
-            @enderror
+                @error('email')
+                    <p class="error-msg">{{ $message }}</p>
+                @enderror
 
-            <button type="submit">Ingresar</button>
-        </form>
+                <button type="submit" class="btn w-100 login-btn mb-2">Ingresar</button>
+                <a href="{{ route('home') }}" class="btn w-100 cancel-btn">Cancelar</a>
+            </form>
+        </div>
     </div>
-    {{-- @endsection --}}
+
+    <!-- Bootstrap JS (opcional, por si necesitas componentes interactivos) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
