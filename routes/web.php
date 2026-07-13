@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     return view('home_landing.home');
@@ -59,4 +60,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/usuarios/{usuario}', [UsuarioController::class, 'update'])->name('usuarios.update');
     Route::delete('/usuarios/{usuario}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
 
+    Route::post('/orders', [OrderController::class, 'store']); 
 });
