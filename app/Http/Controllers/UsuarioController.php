@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -25,8 +26,10 @@ class UsuarioController extends Controller
             'email' => 'required|email|unique:usuarios',
             'password' => 'required|min:6',
         ]);
-
-        Usuario::create($request->all());
+        
+        $data = $request->all();
+        $data['password'] = Hash::make($data['password']);
+        Usuario::create($data);
 
         return redirect()->route('usuarios.index')->with('success', 'Usuario creado');
     }
