@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Enums\OrderStatus;
 use Illuminate\Support\Facades\DB;
+use InvalidArgumentException;
 
 class OrderService
 {
@@ -39,5 +40,27 @@ class OrderService
 
             return $order;
         });
+    }
+
+    public function updateStatus(Order $order, string $newStatus)
+    {
+        $currentStatus = $order->status->value;
+
+        $isValid = match ($currentStatus) {
+            OrderStatus::PENDIENTE->value => in_array($newStatus, [OrderStatus::PAGADO->value, OrderStatus::CANCELADO->value]),
+            OrderStatus::PAGADO->value => in_array($newStatus, [OrderStatus::ENVIADO->value, OrderStatus::CANCELADO->value]),
+            OrderStatus::ENVIADO->value => $newStatus === OrderStatus::ENTREGADO->value,
+            OrderStatus::ENTREGADO->value, OrderStatus::CANCELADO->value => false,
+            default => false,
+        };
+
+        if (!$isValid) {
+            throw new InvalidArgumentException('Transición de estado no permitida.');
+        }
+
+        $order->status = OrderStatus::from($newStatus);
+        $order->save();
+
+        return $order;
     }
 }

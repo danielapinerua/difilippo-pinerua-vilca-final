@@ -10,7 +10,6 @@ use Illuminate\Support\Carbon;
 /**
  * Class Wishlist
  *
- * @property int $id
  * @property int $usuario_id
  * @property int $product_id
  * @property Carbon|null $created_at
