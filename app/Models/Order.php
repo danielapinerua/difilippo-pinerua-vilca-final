@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use App\Enums\OrderStatus;
 
 /**
  * Class Order
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\Collection;
  * @property int $id
  * @property int $usuario_id
  * @property string $total
- * @property string $status
+ * @property OrderStatus $status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
@@ -46,8 +47,9 @@ class Order extends Model
      */
     protected function casts(): array
     {
-        return [
-            'total' => 'decimal:2',
+    return [
+        'status' => OrderStatus::class,
+        'total' => 'decimal:2',
         ];
     }
 
