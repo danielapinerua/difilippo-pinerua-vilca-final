@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+
+.page-admin-products {
+    --cafe-noir: #2E2C28;
+    --kombu: #4A5344;
+    --moss: #7D8570;
+    --tan: #A69777;
+    --bone: #DCD6C9;
+    --bone-soft: #C9C2B2;
+
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.page-admin-products .stc-section {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 48px clamp(24px, 4vw, 56px) 80px;
+    box-sizing: border-box;
+}
+
+
+.page-admin-products .stc-section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 32px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(46, 44, 40, 0.15);
+}
+
+.page-admin-products .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--moss) !important;
+}
+
+.page-admin-products .stc-section-head h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    color: var(--cafe-noir);
+}
+
+.page-admin-products .admin-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .85rem;
+    color: var(--cafe-noir);
+    opacity: .7;
+    margin-top: 10px;
+}
+
+.page-admin-products .stc-btn-primary {
+    background: var(--cafe-noir) !important;
+    color: var(--bone) !important;
+}
+.page-admin-products .stc-btn-primary:hover {
+    background: var(--kombu) !important;
+    color: var(--bone) !important;
+}
+.page-admin-products .stc-btn-ghost {
+    border-color: var(--cafe-noir) !important;
+    color: var(--cafe-noir) !important;
+}
+.page-admin-products .stc-btn-ghost:hover {
+    background: var(--cafe-noir) !important;
+    color: var(--bone) !important;
+}
+.page-admin-products .stc-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    border-radius: 4px;
+    padding: .6rem 1.2rem;
+}
+
+
+.page-admin-products .admin-alert {
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: .88rem;
+    margin-bottom: 24px;
+}
+
+.page-admin-products .admin-alert-success {
+    background: rgba(74, 83, 68, 0.12);
+    border: 1px solid var(--kombu);
+    color: var(--kombu);
+}
+
+
+.page-admin-products .admin-table-wrap {
+    background: var(--bone);
+    border: 1px solid rgba(46, 44, 40, 0.2);
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+.page-admin-products .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+}
+
+.page-admin-products .admin-table thead {
+    background: var(--cafe-noir);
+}
+
+.page-admin-products .admin-table th {
+    text-align: left;
+    padding: 14px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--bone);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.page-admin-products .admin-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(46, 44, 40, 0.1);
+    font-size: .88rem;
+    color: var(--cafe-noir);
+    vertical-align: middle;
+}
+
+.page-admin-products .admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.page-admin-products .admin-table tbody tr:hover td {
+    background: var(--bone-soft);
+}
+
+.page-admin-products .admin-table-desc {
+    max-width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: .8;
+}
+
+.page-admin-products .admin-table-price {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    color: var(--kombu);
+    white-space: nowrap;
+}
+
+
+.page-admin-products .admin-product-thumb {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(46, 44, 40, 0.2);
+    display: block;
+}
+
+.page-admin-products .admin-no-image {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
+    background: var(--bone-soft);
+    color: var(--cafe-noir);
+    opacity: .5;
+    font-size: .62rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+
+
+.page-admin-products .admin-stock-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(74, 83, 68, 0.15);
+    color: var(--kombu);
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.page-admin-products .admin-stock-badge.is-empty {
+    background: rgba(161, 63, 44, 0.12);
+    color: #a13f2c;
+}
+
+
+.page-admin-products .admin-table-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.page-admin-products .admin-table-actions form {
+    display: inline-flex;
+}
+
+.page-admin-products .admin-btn-danger {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    background: transparent;
+    border: 1px solid #a13f2c;
+    color: #a13f2c;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.page-admin-products .admin-btn-danger:hover {
+    background: #a13f2c;
+    color: var(--bone);
+}
+
+.page-admin-products .admin-table-empty {
+    text-align: center;
+    padding: 32px;
+    color: var(--cafe-noir);
+    opacity: .6;
+}
+
+
+.page-admin-products .admin-back-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .85rem;
+    color: var(--kombu);
+    text-decoration: none;
+}
+
+.page-admin-products .admin-back-link:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 700px) {
+    .page-admin-products .stc-section-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

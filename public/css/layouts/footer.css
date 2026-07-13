@@ -65,3 +65,12 @@
 @media (max-width: 700px) {
   .stc-footer-top { grid-template-columns: 1fr; gap: 2rem; }
 }
+
+
+.stc-footer--compact {
+  padding: 1.4rem 6vw;
+}
+
+.stc-footer--compact .stc-footer-bottom {
+  padding-top: 0;
+}

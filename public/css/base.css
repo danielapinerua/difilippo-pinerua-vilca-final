@@ -18,6 +18,10 @@ body { margin: 0; padding: 0; }
   background: var(--bone);
   color: var(--cafe-noir);
   font-family: var(--font-body);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .stc-landing * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -72,4 +76,8 @@ body { margin: 0; padding: 0; }
 .stc-landing button:focus-visible {
   outline: 3px solid var(--kombu);
   outline-offset: 2px;
+}
+
+.stc-main-grow {
+  flex: 1;
 }

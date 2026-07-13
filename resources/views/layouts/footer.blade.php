@@ -1,29 +1,33 @@
-<footer class="stc-footer">
-  <div class="stc-footer-top">
-    <div class="stc-footer-brand">
-      <span class="stc-nav-logo-mark">ST</span>
-      <div>
-        <p class="stc-footer-brand-name">Sin TACC Market</p>
-        <p class="stc-footer-brand-tag">Comida real, sin gluten, sin vueltas.</p>
+<footer class="stc-footer {{ request()->routeIs('home') ? '' : 'stc-footer--compact' }}">
+
+  @if (request()->routeIs('home'))
+    <div class="stc-footer-top">
+      <div class="stc-footer-brand">
+        <span class="stc-nav-logo-mark">ST</span>
+        <div>
+          <p class="stc-footer-brand-name">Sin TACC Market</p>
+          <p class="stc-footer-brand-tag">Comida real, sin gluten, sin vueltas.</p>
+        </div>
+      </div>
+
+      <div class="stc-footer-col">
+        <span class="eyebrow">Mercado</span>
+        <a href="{{ route('home') }}#categorias">Panificados</a>
+        <a href="{{ route('home') }}#categorias">Snacks</a>
+        <a href="{{ route('home') }}#categorias">Despensa</a>
+      </div>
+
+      <div class="stc-footer-col">
+        <span class="eyebrow">Ayuda</span>
+        <a href="#">Envíos</a>
+        <a href="#">Certificaciones</a>
+        <a href="#">Contacto</a>
       </div>
     </div>
-
-    <div class="stc-footer-col">
-      <span class="eyebrow">Mercado</span>
-      <a href="{{ route('home') }}#categorias">Panificados</a>
-      <a href="{{ route('home') }}#categorias">Snacks</a>
-      <a href="{{ route('home') }}#categorias">Despensa</a>
-    </div>
-
-    <div class="stc-footer-col">
-      <span class="eyebrow">Ayuda</span>
-      <a href="#">Envíos</a>
-      <a href="#">Certificaciones</a>
-      <a href="#">Contacto</a>
-    </div>
-  </div>
+  @endif
 
   <div class="stc-footer-bottom">
     <p>© {{ date('Y') }} Sin TACC Market. Todos los derechos reservados.</p>
   </div>
+
 </footer>

@@ -12,9 +12,12 @@
 
   <section class="stc-section">
     <div class="stc-section-head">
-      <span class="eyebrow">Panel</span>
-      <h2>Hola, {{ Auth::user()->nombre }}</h2>
-      <p class="admin-sub">Desde acá gestionás las categorías y productos del mercado.</p>
+      <div class="stc-section-head-main">
+        <span class="eyebrow">Panel</span>
+        <h2>Hola, {{ Auth::user()->nombre }}</h2>
+        <p class="admin-sub">Desde acá gestionás las categorías y productos del mercado.</p>
+      </div>
+      <span class="admin-role-chip">Admin</span>
     </div>
 
     {{-- RESUMEN --}}

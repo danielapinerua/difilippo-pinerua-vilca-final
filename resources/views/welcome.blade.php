@@ -17,7 +17,7 @@
 
         @include('layouts.header')
 
-        <main>
+        <main class="stc-main-grow">
             @yield('content')
         </main>
 
