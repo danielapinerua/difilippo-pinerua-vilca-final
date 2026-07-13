@@ -17,28 +17,20 @@ class CategoryService
         return Category::create($data);
     }
 
-    public function getCategoryById(int $id): Category
+    public function updateCategory(Category $category, array $data): Category
     {
-        return Category::findOrFail($id);
-    }
-
-    public function updateCategory(int $id, array $data): Category
-    {
-        $category = $this->getCategoryById($id);
         $category->update($data);
         
         return $category;
     }
 
-    public function deleteCategory(int $id): void
+    public function deleteCategory(Category $category): void
     {
-        $category = $this->getCategoryById($id);
         $category->delete();
     }
 
-    public function restoreCategory(int $id): void
+    public function restoreCategory(Category $category): void
     {
-        $category = Category::withTrashed()->findOrFail($id);
         $category->restore();
     }
 }

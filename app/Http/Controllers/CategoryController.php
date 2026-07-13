@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoryRequest;
+use App\Models\Category;
 use App\Services\CategoryService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -36,27 +37,26 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')->with('success', 'Categoría creada con éxito.');
     }
 
-    public function edit(int $id): View
+    public function edit(Category $category): View
     {
-        $category = $this->categoryService->getCategoryById($id);
         return view('categories.edit', compact('category'));
     }
 
-    public function update(CategoryRequest $request, int $id): RedirectResponse
+    public function update(CategoryRequest $request, Category $category): RedirectResponse
     {
-        $this->categoryService->updateCategory($id, $request->validated());
+        $this->categoryService->updateCategory($category, $request->validated());
         return redirect()->route('categories.index')->with('success', 'Categoría actualizada con éxito.');
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function destroy(Category $category): RedirectResponse
     {
-        $this->categoryService->deleteCategory($id);
+        $this->categoryService->deleteCategory($category);
         return redirect()->route('categories.index')->with('success', 'Categoría eliminada con éxito.');
     }
 
-    public function restore(int $id): RedirectResponse
+    public function restore(Category $category): RedirectResponse
     {
-        $this->categoryService->restoreCategory($id);
+        $this->categoryService->restoreCategory($category);
         return redirect()->route('categories.index')->with('success', 'Categoría restaurada con éxito.');
     }
 }

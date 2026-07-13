@@ -21,7 +21,6 @@ class AuthController extends Controller
         $credentials = $request->validated();
 
         if ($this->authService->attemptLogin($credentials, $request)) {
-            Log::info('login success');
             return redirect()->intended('/');
         }
 

@@ -20,5 +20,12 @@ class UserSeeder extends Seeder
             'password' => Hash::make('1111'),
             'es_admin' => 1,
         ]);
+
+        Usuario::create([
+            'nombre' => 'Usuario',
+            'email' => 'cliente@gmail.com',
+            'password' => Hash::make('1111'),
+            'es_admin' => 0,
+        ]);
     }
 }

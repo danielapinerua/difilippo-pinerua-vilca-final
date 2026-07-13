@@ -41,7 +41,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
     Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
-    Route::patch('/categories/{category}/restore', [CategoryController::class, 'restore'])->name('categories.restore');
+    Route::patch('/categories/{category}/restore', [CategoryController::class, 'restore'])->name('categories.restore')->withTrashed();
 
     // PRODUCTS
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');

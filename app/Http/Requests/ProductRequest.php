@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 
 class ProductRequest extends FormRequest
 {
@@ -12,7 +13,7 @@ class ProductRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,12 +23,17 @@ class ProductRequest extends FormRequest
      */
     public function rules(): array
     {
-    return [
-        'name' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'price' => 'required|numeric|min:0',
-        'stock' => 'required|integer|min:0',
-        'image' => 'nullable|string'
-    ];
+        return [
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+            'image' => 'nullable'
+        ];
+    }
+
+    public function prepareForValidation()
+    {
+        Log::info('image',[$this->image]);
     }
 }

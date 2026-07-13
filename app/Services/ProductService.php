@@ -16,21 +16,14 @@ class ProductService
         return Product::create($data);
     }
 
-    public function getProductById($id)
+    public function updateProduct(Product $product, array $data): Product
     {
-        return Product::findOrFail($id);
-    }
-
-    public function updateProduct($id, $data)
-    {
-        $product = $this->getProductById($id);
         $product->update($data);
         return $product;
     }
 
-    public function deleteProduct($id)
+    public function deleteProduct(Product $product): void
     {
-        $product = $this->getProductById($id);
         $product->delete();
     }
 }

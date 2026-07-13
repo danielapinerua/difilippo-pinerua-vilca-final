@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Services\ProductService;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Storage;
@@ -31,33 +32,33 @@ class ProductController extends Controller
         $data = $request->validated();
         // 👉 si hay imagen
         if ($request->hasFile('image')) {
-        $path = $request->file('image')->store('products', 'public');
-        $data['image'] = $path;
+            $path = $request->file('image')->store('products', 'public');
+            $data['image'] = $path;
         }
         $this->productService->createProduct($data);
         return redirect()->route('products.index');
-        }
+    }
 
-    public function edit($id)
+    public function edit(Product $product)
     {
-        $product = $this->productService->getProductById($id);
         return view('products.edit', compact('product'));
     }
 
-    public function update(ProductRequest $request, $id)
+    public function update(ProductRequest $request, Product $product)
     {
         $data = $request->validated();
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('products', 'public');
             $data['image'] = $path;
-            }
-            $this->productService->updateProduct($id, $data);
-            return redirect()->route('products.index');
-            }
+        }
+        
+        $this->productService->updateProduct($product, $data);
+        return redirect()->route('products.index');
+    }
 
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        $this->productService->deleteProduct($id);
+        $this->productService->deleteProduct($product);
         return redirect()->route('products.index');
     }
 }
