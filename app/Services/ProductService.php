@@ -13,12 +13,19 @@ class ProductService
 
     public function createProduct($data)
     {
-        return Product::create($data);
+        $product = Product::create($data);
+        if (isset($data['categories'])) {
+            $product->categories()->attach($data['categories']);
+        }
+        return $product;
     }
 
     public function updateProduct(Product $product, array $data): Product
     {
         $product->update($data);
+        if (isset($data['categories'])) {
+            $product->categories()->sync($data['categories']);
+        }
         return $product;
     }
 

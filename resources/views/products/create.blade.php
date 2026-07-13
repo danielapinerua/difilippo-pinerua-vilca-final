@@ -44,6 +44,20 @@
             <input type="file" name="image" id="image" accept="image/*">
         </div>
 
+        <div style="margin-bottom: 15px;">
+            <label>Categorías:</label><br>
+            @foreach($categories as $category)
+                <label>
+                    <input type="checkbox" name="categories[]" value="{{ $category->id }}"
+                        {{ is_array(old('categories')) && in_array($category->id, old('categories')) ? 'checked' : '' }}>
+                    {{ $category->name }}
+                </label><br>
+            @endforeach
+            @error('categories')
+                <div style="color: red; font-size: 0.9em; margin-top: 5px;">{{ $message }}</div>
+            @enderror
+        </div>
+
         <button type="submit">Guardar Producto</button>
     </form>
 
