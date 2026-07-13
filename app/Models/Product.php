@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Collection;
-
+use App\Models\Usuario;
 /**
  * Class Product
  *
@@ -96,5 +96,10 @@ class Product extends Model
     public function wishlists(): HasMany
     {
         return $this->hasMany(Wishlist::class);
+    }
+
+    public function wishlistedBy()
+    {
+    return $this->belongsToMany(Usuario::class, 'wishlists', 'product_id', 'usuario_id');
     }
 }
