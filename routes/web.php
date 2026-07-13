@@ -5,12 +5,16 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StoreController;
 
 Route::get('/', function () {
     return view('home_landing.home');
 })->name('home');
 
 Route::view('/about', 'pages.about')->name('about');
+
+// CATÁLOGO PÚBLICO
+Route::get('/catalog', [StoreController::class, 'catalog'])->name('store.catalog');
 
 
 // GUEST (no logueado)
