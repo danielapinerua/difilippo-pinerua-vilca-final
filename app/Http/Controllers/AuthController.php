@@ -6,6 +6,7 @@ use App\Services\AuthService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -21,6 +22,11 @@ class AuthController extends Controller
         $credentials = $request->validated();
 
         if ($this->authService->attemptLogin($credentials, $request)) {
+            
+            if (Auth::user()->es_admin) {
+                return redirect()->intended(route('admin.dashboard'));
+            }
+
             return redirect()->intended('/');
         }
 
