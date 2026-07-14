@@ -13,9 +13,15 @@ Route::get('/', function () {
 
 Route::view('/about', 'pages.about')->name('about');
 
-// CATÁLOGO PÚBLICO
+// RUTA DEL CATÁLOGO PÚBLICO
 Route::get('/catalog', [StoreController::class, 'catalog'])->name('store.catalog');
 
+// RUTAS DUMMY PARA CARRITO Y WISHLIST
+Route::post('/cart/add/{product}', function() {})->name('cart.add');
+Route::post('/wishlist/add/{product}', function() {})->name('wishlist.add');
+
+// RUTA DUMMY PARA EL DETALLE DEL PRODUCTO
+Route::get('/products/{product}', [StoreController::class, 'show'])->name('products.show');
 
 // GUEST (no logueado)
 Route::middleware('guest')->group(function () {

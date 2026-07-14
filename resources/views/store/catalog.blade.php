@@ -29,7 +29,7 @@
             
             <div class="product-grid">
                 @forelse($products as $product)
-                    <div class="product-card">
+                    <a href="{{ route('products.show', $product->id) }}" class="product-card">
                         
                         <div class="product-image">
                             @if($product->image)
@@ -46,15 +46,9 @@
                             <p class="product-price">
                                 ${{ number_format($product->price, 2, ',', '.') }}
                             </p>
-                            
-                            <div class="product-actions">
-                                <a href="#" class="btn-detail">
-                                    Ver detalle
-                                </a>
-                            </div>
                         </div>
 
-                    </div>
+                    </a>
                 @empty
                     <p class="empty-catalog">
                         No hay productos disponibles en este momento.
