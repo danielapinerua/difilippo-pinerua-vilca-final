@@ -37,7 +37,7 @@ class ProductSeeder extends Seeder
             'name' => 'Premezcla Santa María sin lactosa',
             'description' => 'Premezcla para panadería y repostería Santa María sin lactosa de 1 kg.',
             'price' => 4500,
-            'stock' => 10,
+            'stock' => 50,
             'image' => 'products/premezclasinlactosa.webp'
             ]);
         
@@ -45,7 +45,7 @@ class ProductSeeder extends Seeder
             'name' => 'Premezcla Pureza sin gluten',
             'description' => 'Premezcla Pureza para pizza y pan libre de gluten de 500 gramos.',
             'price' => 2500,
-            'stock' => 10,
+            'stock' => 50,
             'image' => 'products/pureza.webp'
             ]);
         
@@ -53,7 +53,7 @@ class ProductSeeder extends Seeder
             'name' => 'Premezcla Pureza para chipa sin gluten',
             'description' => 'Premezcla Pureza para preparar chipa libre de gluten de 250 gramos.',
             'price' => 2000,
-            'stock' => 10,
+            'stock' => 20,
             'image' => 'products/purezachipa.webp'
             ]);
 
@@ -101,7 +101,7 @@ class ProductSeeder extends Seeder
             'name' => 'Tapas para empanadas La Sálteña sin gluten',
             'description' => 'Tapas para empanadas sin gluten marca La Sálteña de 330 gramos, 12 unidades.',
             'price' => 3000,
-            'stock' => 10,
+            'stock' => 40,
             'image' => 'products/tapaslasaltena.webp'
             ]);
 
@@ -109,7 +109,7 @@ class ProductSeeder extends Seeder
             'name' => 'Bizcochuelo de vainilla Exquisita sin gluten',
             'description' => 'Bizcochuelo de vainilla libre de gluten marca Exquisita de 450 gramos.',
             'price' => 3000,
-            'stock' => 10,
+            'stock' => 30,
             'image' => 'products/bizcochuelo.webp'
             ]);
 
@@ -117,32 +117,74 @@ class ProductSeeder extends Seeder
             'name' => 'Alfajor Jorgito sin gluten',
             'description' => 'Alfajor marca Jorgito sin gluten de 50 gramos.',
             'price' => 1500,
-            'stock' => 10,
+            'stock' => 20,
             'image' => 'products/jorgito.webp'
             ]);
 
         Product::create([
-            'name' => 'Ravioles de espinaca y ricota Leofanti sin gluten',
+            'name' => 'Ravioles de espinaca y ricota Leofanti',
             'description' => 'Ravioles de espinaca y ricota sin gluten marca Leofanti de 360 gramos.',
             'price' => 4000,
-            'stock' => 10,
+            'stock' => 30,
             'image' => 'products/ravioles.webp'
             ]);
 
         Product::create([
-            'name' => 'Galletitas marmoladas Santa María sin gluten',
+            'name' => 'Galletitas marmoladas Santa María',
             'description' => 'Galletitas marmoladas sin gluten marca Santa María de 200 gramos.',
             'price' => 2500,
-            'stock' => 10,
+            'stock' => 20,
             'image' => 'products/marmoladas.webp'
             ]);
 
         Product::create([
-            'name' => 'Budín Smams con chips de chocolate sin gluten',
+            'name' => 'Budín Smams con chips de chocolate',
             'description' => 'Budín sin gluten con chips de chocolate marca Smams de 200 gramos.',
             'price' => 2500,
-            'stock' => 10,
+            'stock' => 25,
             'image' => 'products/budinchips.webp'
             ]);
+
+        Product::create([
+            'name' => 'Empanadas de carne Il Sole',
+            'description' => 'Empanadas de carne congeladas libres de gluten marca Il Sole de 480 gramos.',
+            'price' => 5000,
+            'stock' => 10,
+            'image' => 'products/empanadas.webp'
+            ]);
+
+        Product::create([
+            'name' => 'Medallones de soja Dimax',
+            'description' => 'Medallones de soja marca Dimax de 4 unidades.',
+            'price' => 3500,
+            'stock' => 15,
+            'image' => 'products/medallonesdesoja.webp'
+            ]);
+
+        Product::create([
+            'name' => 'Pizza de muzzarella Il Sole',
+            'description' => 'Pizza de muzzarella sin gluten congelada marca Il Sole de 400 gramos.',
+            'price' => 5000,
+            'stock' => 10,
+            'image' => 'products/pizza.webp'
+            ]);
+
+        Product::create([
+            'name' => 'Nuggets de pollo Argenti',
+            'description' => 'Nuggets de pollo sin gluten marca Argenti de 300 gramos.',
+            'price' => 4000,
+            'stock' => 10,
+            'image' => 'products/nuggets.webp'
+            ]);
+
+        Product::create([
+            'name' => 'Premezcla para ñoquis de papa Arcor sin gluten',
+            'description' => 'Premezcla para preparar ñoquis de papa libre de gluten marca Arcor de 400 gramos.',
+            'price' => 2500,
+            'stock' => 15,
+            'image' => 'products/premezclanoquis.webp'
+            ]);
+
+        
     }
 }
