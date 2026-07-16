@@ -16,9 +16,16 @@ Route::view('/about', 'pages.about')->name('about');
 // RUTA DEL CATÁLOGO PÚBLICO
 Route::get('/catalog', [StoreController::class, 'catalog'])->name('store.catalog');
 
-// RUTAS DUMMY PARA CARRITO Y WISHLIST
+use App\Http\Controllers\WishlistController;
+
+// RUTA DUMMY PARA CARRITO
 Route::post('/cart/add/{product}', function() {})->name('cart.add');
-Route::post('/wishlist/add/{product}', function() {})->name('wishlist.add');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+    Route::post('/wishlist/toggle/{product}', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
+    Route::delete('/wishlist/{product}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
+});
 
 // RUTA DUMMY PARA EL DETALLE DEL PRODUCTO
 Route::get('/products/{product}', [StoreController::class, 'show'])->name('products.show');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\WishlistService;
+use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class WishlistController extends Controller
 {
@@ -14,38 +16,21 @@ class WishlistController extends Controller
         $this->wishlistService = $wishlistService;
     }
 
-    // Obtener wishlist del usuario
-    public function index($usuarioId)
+    public function index()
     {
-        $wishlist = $this->wishlistService->getByUser($usuarioId);
-
-        return response()->json([
-            'success' => true,
-            'data' => $wishlist
-        ]);
+        $wishlist = $this->wishlistService->getUserWishlist(Auth::user());
+        return view('store.wishlist', compact('wishlist'));
     }
 
-    // Agregar producto a wishlist
-    public function store(Request $request)
+    public function toggle(Product $product)
     {
-        $request->validate([
-            'usuario_id' => 'required|integer',
-            'product_id' => 'required|integer',
-        ]);
-
-        $result = $this->wishlistService->add(
-            $request->usuario_id,
-            $request->product_id
-        );
-
-        return response()->json($result);
+        $this->wishlistService->toggleFavorite(Auth::user(), $product);
+        return back();
     }
 
-    // Eliminar producto de wishlist
-    public function destroy($usuarioId, $productId)
+    public function destroy(Product $product)
     {
-        $result = $this->wishlistService->remove($usuarioId, $productId);
-
-        return response()->json($result);
+        $this->wishlistService->removeFavorite(Auth::user(), $product);
+        return back();
     }
 }

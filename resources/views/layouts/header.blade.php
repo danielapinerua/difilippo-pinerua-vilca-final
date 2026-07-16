@@ -36,6 +36,9 @@
         <ul class="navbar-nav mx-auto mb-3 mb-lg-0 stc-nav-links">
           <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('store.catalog') }}">Productos</a></li>
+          @auth
+          <li class="nav-item"><a class="nav-link" href="{{ route('wishlist.index') }}">Favoritos</a></li>
+          @endauth
           <li class="nav-item"><a class="nav-link" href="{{ route('about') }}#about">Sobre Nosotros</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Envíos</a></li>
         </ul>

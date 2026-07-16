@@ -2,57 +2,43 @@
 
 namespace App\Services;
 
-use App\Models\Wishlist;
+use App\Models\Usuario;
+use App\Models\Product;
 
 class WishlistService
 {
-    public function getByUser(int $usuarioId)
+    /**
+     * Toggles a product in the user's wishlist.
+     *
+     * @param Usuario $usuario
+     * @param Product $product
+     * @return void
+     */
+    public function toggleFavorite(Usuario $usuario, Product $product)
     {
-        return Wishlist::with('product')
-            ->where('usuario_id', $usuarioId)
-            ->get();
+        $usuario->wishlists()->toggle($product->id);
     }
 
-    public function add(int $usuarioId, int $productId)
+    /**
+     * Removes a product from the user's wishlist explicitly.
+     *
+     * @param Usuario $usuario
+     * @param Product $product
+     * @return void
+     */
+    public function removeFavorite(Usuario $usuario, Product $product)
     {
-        $exists = Wishlist::where('usuario_id', $usuarioId)
-            ->where('product_id', $productId)
-            ->exists();
-
-        if ($exists) {
-            return [
-                'success' => false,
-                'message' => 'El producto ya está en la wishlist'
-            ];
-        }
-
-        $wishlist = Wishlist::create([
-            'usuario_id' => $usuarioId,
-            'product_id' => $productId
-        ]);
-
-        return [
-            'success' => true,
-            'data' => $wishlist
-        ];
+        $usuario->wishlists()->detach($product->id);
     }
 
-    public function remove(int $usuarioId, int $productId)
+    /**
+     * Gets the user's wishlist products.
+     *
+     * @param Usuario $usuario
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getUserWishlist(Usuario $usuario)
     {
-        $deleted = Wishlist::where('usuario_id', $usuarioId)
-            ->where('product_id', $productId)
-            ->delete();
-
-        if ($deleted) {
-            return [
-                'success' => true,
-                'message' => 'Producto eliminado de la wishlist'
-            ];
-        }
-
-        return [
-            'success' => false,
-            'message' => 'No se encontró el producto en la wishlist'
-        ];
+        return $usuario->wishlists;
     }
 }

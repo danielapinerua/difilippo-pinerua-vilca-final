@@ -4,7 +4,7 @@ body { margin: 0; padding: 0; }
 
 /* ---------- TOKENS Y BASE (usados en TODO el sitio) ---------- */
 
-.stc-landing {
+:root {
   --cafe-noir: #3D2B1F;
   --kombu: #354F35;
   --moss: #6E7F4F;
@@ -14,7 +14,9 @@ body { margin: 0; padding: 0; }
 
   --font-display: 'Fraunces', serif;
   --font-body: 'Work Sans', sans-serif;
+}
 
+.stc-landing {
   background: var(--bone);
   color: var(--cafe-noir);
   font-family: var(--font-body);
@@ -50,6 +52,7 @@ body { margin: 0; padding: 0; }
   transform: translateY(0) scale(1);
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   border: 2px solid transparent;
+  text-decoration: none;
 }
 
 .stc-btn:active {
@@ -80,4 +83,34 @@ body { margin: 0; padding: 0; }
 
 .stc-main-grow {
   flex: 1;
+}
+
+/* ---------- CUSTOM MODAL OVERRIDES ---------- */
+.stc-custom-modal {
+  background-color: #fff !important;
+  border-radius: 12px !important;
+  border: none !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.stc-custom-modal .modal-header {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+.stc-custom-modal .modal-title {
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+  color: var(--cafe-noir) !important;
+}
+
+.stc-custom-modal .modal-body {
+  color: var(--cafe-noir) !important;
+  font-size: 1.1rem !important;
+  padding: 2rem 1.5rem !important;
+}
+
+.stc-custom-modal .modal-footer {
+  border-top: none !important;
+  padding-bottom: 2rem !important;
 }

@@ -93,18 +93,24 @@ class Usuario extends Authenticatable
     }
 
     /**
-     * Get the wishlists for the usuario.
+     * Get the wishlist products for the usuario.
      *
-     * @return HasMany<Wishlist>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function wishlists(): HasMany
+    public function wishlists()
     {
-        return $this->hasMany(Wishlist::class);
+        return $this->belongsToMany(Product::class, 'wishlists');
     }
 
-    public function wishlistProducts()
+    /**
+     * Check if the user has favorited a specific product.
+     *
+     * @param Product $product
+     * @return bool
+     */
+    public function hasFavorited(Product $product): bool
     {
-        return $this->belongsToMany(Product::class, 'wishlists', 'usuario_id', 'product_id');
+        return $this->wishlists()->where('product_id', $product->id)->exists();
     }
 
     /**
