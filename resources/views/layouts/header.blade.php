@@ -64,6 +64,7 @@
 
           @guest
             <a href="{{ route('login') }}" class="stc-btn stc-btn-primary stc-nav-cta">Iniciar sesión</a>
+            <a href="{{ route('register') }}" class="stc-btn stc-btn-primary stc-nav-cta">Registrarse</a>
           @endguest
         </div>
 

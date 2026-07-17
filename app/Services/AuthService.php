@@ -3,6 +3,8 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Usuario;
+use Illuminate\Support\Facades\Hash;
 
 class AuthService
 {
@@ -23,5 +25,15 @@ class AuthService
         
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+    }
+
+    public function register(array $data): Usuario
+    {
+    return Usuario::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        'es_admin' => false
+    ]);
     }
 }
