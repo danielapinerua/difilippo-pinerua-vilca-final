@@ -29,11 +29,11 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content stc-custom-modal">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Mis Favoritos</h5>
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    Para guardar este producto en tu lista de favoritos, necesitas iniciar sesión en tu cuenta.
+                    Para poder realizar esta acción, necesitas iniciar sesión en tu cuenta.
                 </div>
                 <div class="modal-footer d-flex justify-content-center gap-2">
                     <button type="button" class="stc-btn stc-btn-ghost" data-bs-dismiss="modal">Cancelar</button>

@@ -18,8 +18,19 @@ Route::get('/catalog', [StoreController::class, 'catalog'])->name('store.catalog
 
 use App\Http\Controllers\WishlistController;
 
-// RUTA DUMMY PARA CARRITO
-Route::post('/cart/add/{product}', function() {})->name('cart.add');
+use App\Http\Controllers\CartController;
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/increment/{product}', [CartController::class, 'increment'])->name('cart.increment');
+Route::post('/cart/decrement/{product}', [CartController::class, 'decrement'])->name('cart.decrement');
+Route::delete('/cart/remove/{product}', [CartController::class, 'remove'])->name('cart.remove');
+
+Route::middleware('auth')->group(function () {
+    Route::post('/checkout', function() {
+        return "Próximamente";
+    })->name('checkout.process');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
