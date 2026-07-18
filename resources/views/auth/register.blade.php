@@ -12,13 +12,13 @@
         <div class="login-container col-12 col-sm-8 col-md-6 col-lg-4">
             <h2 class="text-center mb-4">Registro</h2>
 
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register.post') }}">
                 @csrf
 
                 <div class="mb-3">
-                    <input type="text" name="name" class="form-control" placeholder="Nombre" value="{{ old('name') }}" required>
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" value="{{ old('name') }}" required>
                 </div>
-                @error('name')
+                @error('nombre')
                     <p class="error-msg">{{ $message }}</p>
                 @enderror
 

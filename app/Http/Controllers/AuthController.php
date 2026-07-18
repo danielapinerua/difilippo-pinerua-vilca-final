@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Services\AuthService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -40,5 +41,18 @@ class AuthController extends Controller
         $this->authService->logout($request);
 
         return redirect('/');
+    }
+
+    public function register(RegisterRequest $request): RedirectResponse
+    {
+        Log::info('llego aca');
+
+        $user = $this->authService->registerUser($request->validated());
+
+        Log::info('Usuario registrado:', ['user' => $user]);
+
+        Auth::login($user);
+
+        return redirect()->route('home')->with('success', 'Cuenta creada exitosamente');
     }
 }

@@ -27,13 +27,13 @@ class AuthService
         $request->session()->regenerateToken();
     }
 
-    public function register(array $data): Usuario
+    public function registerUser(array $data): Usuario
     {
-    return Usuario::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password']),
-        'es_admin' => false
-    ]);
+        return Usuario::create([
+            'nombre' => $data['nombre'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'es_admin' => false
+        ]);
     }
 }

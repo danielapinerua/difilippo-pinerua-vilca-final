@@ -7,6 +7,15 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StoreController;
 
+// GUEST (no logueado)
+Route::middleware('guest')->group(function () {
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::view('/login', 'auth.login')->name('login');
+
+    Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+    Route::view('/register', 'auth.register')->name('register');
+});
+
 Route::get('/', function () {
     return view('home_landing.home');
 })->name('home');
@@ -26,10 +35,10 @@ Route::post('/cart/increment/{product}', [CartController::class, 'increment'])->
 Route::post('/cart/decrement/{product}', [CartController::class, 'decrement'])->name('cart.decrement');
 Route::delete('/cart/remove/{product}', [CartController::class, 'remove'])->name('cart.remove');
 
+use App\Http\Controllers\CheckoutController;
+
 Route::middleware('auth')->group(function () {
-    Route::post('/checkout', function() {
-        return "Próximamente";
-    })->name('checkout.process');
+    Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 });
 
 Route::middleware('auth')->group(function () {
@@ -40,15 +49,6 @@ Route::middleware('auth')->group(function () {
 
 // RUTA DUMMY PARA EL DETALLE DEL PRODUCTO
 Route::get('/products/{product}', [StoreController::class, 'show'])->name('products.show');
-
-// GUEST (no logueado)
-Route::middleware('guest')->group(function () {
-    Route::view('/login', 'auth.login')->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
-
-    Route::view('/register', 'auth.register')->name('register');
-    Route::post('/register', [AuthController::class, 'register']);
-});
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 

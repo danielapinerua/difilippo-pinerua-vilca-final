@@ -33,12 +33,12 @@
                             <div class="quantity-pill">
                                 <form action="{{ route('cart.decrement', $item['product']->id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn-qty" aria-label="Disminuir cantidad">-</button>
+                                    <button type="submit" class="btn-qty {{ $item['quantity'] <= 1 ? 'disabled' : '' }}" aria-label="Disminuir cantidad" @if ($item['quantity'] <= 1) disabled @endif>-</button>
                                 </form>
                                 <span class="qty-value">{{ $item['quantity'] }}</span>
                                 <form action="{{ route('cart.increment', $item['product']->id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn-qty" aria-label="Aumentar cantidad">+</button>
+                                    <button type="submit" class="btn-qty {{ $item['quantity'] >= $item['product']->stock ? 'disabled' : '' }}" aria-label="Aumentar cantidad" @if ($item['quantity'] >= $item['product']->stock) disabled @endif>+</button>
                                 </form>
                             </div>
                             
