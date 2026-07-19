@@ -7,31 +7,36 @@
 @endpush
 
 @section('content')
-<div class="wishlist-container">
+<div class="container wishlist-container">
     <h1 class="wishlist-title">Mis Favoritos</h1>
-    
+
     @if($wishlist->count() > 0)
-        <div class="wishlist-list">
+        <div class="wishlist-list d-flex flex-column gap-3">
             @foreach($wishlist as $product)
-                <div class="wishlist-item">
-                    <div class="wishlist-item-img">
+                <div class="wishlist-item d-flex align-items-center flex-wrap flex-sm-nowrap gap-3">
+
+                    <div class="wishlist-item-img flex-shrink-0">
                         @if($product->image)
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                            <img
+                                src="{{ asset('storage/' . $product->image) }}"
+                                alt="{{ $product->name }}"
+                                onerror="this.outerHTML='<span class=&quot;wishlist-no-image&quot;>Sin Imagen</span>';"
+                            >
                         @else
-                            <span style="font-size:12px; color:#999;">Sin Imagen</span>
+                            <span class="wishlist-no-image">Sin Imagen</span>
                         @endif
                     </div>
-                    
-                    <div class="wishlist-item-info">
+
+                    <div class="wishlist-item-info flex-grow-1">
                         <h2 class="wishlist-item-title">{{ $product->name }}</h2>
                         <p class="wishlist-item-desc">{{ Str::limit($product->description ?? 'Sin descripción', 80) }}</p>
                         <div class="wishlist-item-price">${{ number_format($product->price, 2, ',', '.') }}</div>
                     </div>
-                    
-                    <div class="wishlist-item-actions">
+
+                    <div class="wishlist-item-actions d-flex align-items-center gap-2 ms-auto">
                         <a href="{{ route('products.show', $product->id) }}" class="stc-btn stc-btn-primary">Ver Publicación</a>
-                        
-                        <form action="{{ route('wishlist.destroy', $product->id) }}" method="POST">
+
+                        <form action="{{ route('wishlist.destroy', $product->id) }}" method="POST" class="m-0">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn-trash" aria-label="Eliminar de favoritos">
@@ -50,10 +55,9 @@
             @endforeach
         </div>
     @else
-        <div class="wishlist-empty">
-            <p>No tienes productos en favoritos.</p>
-            <br>
-            <a href="{{ route('store.catalog') }}" class="stc-btn stc-btn-primary mt-3">Ir al Catálogo</a>
+        <div class="wishlist-empty text-center">
+            <p class="wishlist-empty-text mb-3">No tienes productos en favoritos.</p>
+            <a href="{{ route('store.catalog') }}" class="stc-btn stc-btn-primary">Ir al Catálogo</a>
         </div>
     @endif
 </div>

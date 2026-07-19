@@ -15,6 +15,11 @@ class StoreController extends Controller
 
     public function show(Product $product)
     {
-        return view('store.show', compact('product'));
+        $relatedProducts = Product::where('id', '!=', $product->id)
+            ->inRandomOrder()
+            ->limit(4)
+            ->get();
+
+        return view('store.show', compact('product', 'relatedProducts'));
     }
 }

@@ -7,21 +7,25 @@
 @endpush
 
 @section('content')
-<div class="product-show-container">
-    <main class="product-show-layout">
-        
-        <section class="product-show-gallery">
+<div class="container product-show-container">
+    <div class="row g-5">
+
+        <section class="col-12 col-lg-6 product-show-gallery">
             <figure>
                 @if($product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                    <img
+                        src="{{ asset('storage/' . $product->image) }}"
+                        alt="{{ $product->name }}"
+                        onerror="this.outerHTML='<span class=&quot;product-show-no-image&quot;>Sin Imagen</span>';"
+                    >
                 @else
-                    <img src="https://via.placeholder.com/600x600?text=Sin+Imagen" alt="Sin imagen">
+                    <span class="product-show-no-image">Sin Imagen</span>
                 @endif
             </figure>
         </section>
 
-        <section class="product-buybox">
-            
+        <section class="col-12 col-lg-6 product-buybox">
+
             <div class="buybox-header">
                 <h1 class="product-title">{{ $product->name }}</h1>
                 @guest
@@ -44,7 +48,11 @@
                 </form>
                 @endauth
             </div>
-            
+
+            @if($product->description)
+                <p class="product-description">{{ $product->description }}</p>
+            @endif
+
             <h2 class="product-price">${{ number_format($product->price, 2, ',', '.') }}</h2>
 
             @if($product->stock > 0)
@@ -55,6 +63,7 @@
                             <option value="{{ $i }}">{{ $i }} {{ $i == 1 ? 'unidad' : 'unidades' }}</option>
                         @endfor
                     </select>
+                    <span class="stock-note">{{ $product->stock }} disponibles</span>
                 </div>
             @else
                 <p class="out-of-stock-text">Sin stock</p>
@@ -87,6 +96,35 @@
             </div>
         </section>
 
-    </main>
+    </div>
+
+    @if(isset($relatedProducts) && $relatedProducts->count() > 0)
+        <section class="related-products">
+            <h2 class="related-title">Recomendados para vos</h2>
+
+            <div class="related-grid">
+                @foreach($relatedProducts as $related)
+                    <a href="{{ route('products.show', $related->id) }}" class="related-card">
+                        <div class="related-image">
+                            @if($related->image)
+                                <img
+                                    src="{{ asset('storage/' . $related->image) }}"
+                                    alt="{{ $related->name }}"
+                                    loading="lazy"
+                                    onerror="this.outerHTML='<span class=&quot;related-no-image&quot;>Sin Imagen</span>';"
+                                >
+                            @else
+                                <span class="related-no-image">Sin Imagen</span>
+                            @endif
+                        </div>
+                        <div class="related-info">
+                            <h3 class="related-name">{{ $related->name }}</h3>
+                            <p class="related-price">${{ number_format($related->price, 2, ',', '.') }}</p>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+        </section>
+    @endif
 </div>
 @endsection
