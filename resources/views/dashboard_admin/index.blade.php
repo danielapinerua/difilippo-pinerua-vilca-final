@@ -63,6 +63,18 @@
         </div>
       </div>
 
+      <div class="admin-panel-card">
+        <div class="admin-panel-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        </div>
+        <h3>Usuarios</h3>
+        <p>Gestioná los clientes registrados.</p>
+        <div class="admin-panel-actions">
+          <a href="{{ route('usuarios.index') }}" class="stc-btn stc-btn-ghost">Ver usuarios</a>
+          <a href="{{ route('usuarios.create') }}" class="stc-btn stc-btn-primary">Nuevo usuario</a>
+        </div>
+      </div>
+
     </div>
   </section>
 

@@ -1,51 +1,50 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Crear Usuario</title>
-</head>
-<body>
-    <h1>Crear Usuario</h1>
+@extends('welcome')
 
-    @if ($errors->any())
-        <div style="color: red; margin-bottom: 15px;">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+@section('title', 'Crear Usuario')
 
-    <form action="{{ route('usuarios.store') }}" method="POST">
-        @csrf
-        
-        <div>
-            <label>Nombre:</label><br>
-            <input type="text" name="nombre" value="{{ old('nombre') }}" required>
-        </div>
+@section('content')
 
-        <div>
-            <label>Email:</label><br>
-            <input type="email" name="email" value="{{ old('email') }}" required>
-        </div>
+<div class="container py-5">
+  <h2>Crear Usuario</h2>
 
-        <div>
-            <label>Password:</label><br>
-            <input type="password" name="password" required>
-        </div>
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
 
-        <div>
-            <label>
-                Admin:
-                <input type="checkbox" name="es_admin" value="1">
-            </label>
-        </div>
+  <form action="{{ route('usuarios.store') }}" method="POST">
+    @csrf
 
-        <button type="submit">Guardar Usuario</button>
-    </form>
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input type="text" name="nombre" class="form-control" value="{{ old('nombre') }}">
+    </div>
 
-    <br>
-    <a href="{{ route('usuarios.index') }}">Cancelar y volver</a>
-</body>
-</html>
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" name="email" class="form-control" value="{{ old('email') }}">
+    </div>
+
+    <div class="mb-3">
+      <label>Password</label>
+      <input type="password" name="password" class="form-control">
+    </div>
+
+    <div class="mb-3">
+  <label>
+    <input type="checkbox" name="es_admin">
+    Es admin
+  </label>
+</div>
+
+    <button class="btn btn-primary">Guardar</button>
+  </form>
+
+</div>
+
+@endsection

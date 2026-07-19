@@ -1,47 +1,48 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Editar Usuario</title>
-</head>
-<body>
-    <h1>Editar Usuario</h1>
+@extends('welcome')
 
-    @if ($errors->any())
-        <div>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+@section('title', 'Editar Usuario')
 
-    <form action="{{ route('usuarios.update', $usuario->id) }}" method="POST">
-        @csrf
-        @method('PUT')
+@section('content')
 
-        <div>
-            <label>Nombre:</label><br>
-            <input type="text" name="nombre" value="{{ old('nombre', $usuario->nombre) }}" required>
-        </div>
+<div class="container py-5">
+  <h2>Editar Usuario</h2>
 
-        <div>
-            <label>Email:</label><br>
-            <input type="email" name="email" value="{{ old('email', $usuario->email) }}" required>
-        </div>
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
 
-        <div>
-            <label>
-                Admin:
-                <input type="checkbox" name="es_admin" value="1" {{ $usuario->es_admin ? 'checked' : '' }}>
-            </label>
-        </div>
+  <form action="{{ route('usuarios.update', $usuario->id) }}" method="POST">
+    @csrf
+    @method('PUT')
 
-        <button type="submit">Actualizar Usuario</button>
-    </form>
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input type="text" name="nombre" class="form-control"
+        value="{{ old('nombre', $usuario->nombre) }}">
+    </div>
 
-    <br>
-    <a href="{{ route('usuarios.index') }}">Cancelar y volver</a>
-</body>
-</html>
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" name="email" class="form-control"
+        value="{{ old('email', $usuario->email) }}">
+    </div>
+
+    <div class="mb-3">
+        <label>
+            <input type="checkbox" name="es_admin">
+            Es admin
+        </label>
+    </div>
+
+    <button class="btn btn-primary">Actualizar</button>
+  </form>
+
+</div>
+
+@endsection

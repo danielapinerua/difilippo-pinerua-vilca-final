@@ -10,8 +10,9 @@ class UsuarioController extends Controller
 {
     public function index()
     {
-        $usuarios = Usuario::all();
-        return view('usuarios.index', compact('usuarios'));
+        $admins = Usuario::where('es_admin', true)->get();
+        $clients = Usuario::where('es_admin', false)->get();
+        return view('usuarios.index', compact('admins', 'clients'));
     }
 
     public function create()
