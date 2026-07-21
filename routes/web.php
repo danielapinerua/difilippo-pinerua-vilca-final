@@ -53,8 +53,8 @@ Route::get('/products/{product}', [StoreController::class, 'show'])->name('produ
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 // solo el admin puede acceder acaaaaaaaa nereaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
 
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
@@ -72,11 +72,16 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
     // USUARIOS (ADMIN)
-Route::get('/usuarios', [App\Http\Controllers\UsuarioController::class, 'index'])->name('usuarios.index');
-Route::get('/usuarios/create', [App\Http\Controllers\UsuarioController::class, 'create'])->name('usuarios.create');
-Route::post('/usuarios', [App\Http\Controllers\UsuarioController::class, 'store'])->name('usuarios.store');
-Route::get('/usuarios/{usuario}/edit', [App\Http\Controllers\UsuarioController::class, 'edit'])->name('usuarios.edit');
-Route::put('/usuarios/{usuario}', [App\Http\Controllers\UsuarioController::class, 'update'])->name('usuarios.update');
-Route::delete('/usuarios/{usuario}', [App\Http\Controllers\UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+    Route::get('/usuarios', [App\Http\Controllers\UsuarioController::class, 'index'])->name('usuarios.index');
+    Route::get('/usuarios/create', [App\Http\Controllers\UsuarioController::class, 'create'])->name('usuarios.create');
+    Route::post('/usuarios', [App\Http\Controllers\UsuarioController::class, 'store'])->name('usuarios.store');
+    Route::get('/usuarios/{usuario}/edit', [App\Http\Controllers\UsuarioController::class, 'edit'])->name('usuarios.edit');
+    Route::put('/usuarios/{usuario}', [App\Http\Controllers\UsuarioController::class, 'update'])->name('usuarios.update');
+    Route::delete('/usuarios/{usuario}', [App\Http\Controllers\UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+    
+    // PEDIDOS (ADMIN)
+    Route::get('/orders', [App\Http\Controllers\AdminOrderController::class, 'index'])->name('admin.orders.index');
+    Route::get('/orders/{order}', [App\Http\Controllers\AdminOrderController::class, 'show'])->name('admin.orders.show');
+    Route::put('/orders/{order}/status', [App\Http\Controllers\AdminOrderController::class, 'update'])->name('admin.orders.update');
 
 });
