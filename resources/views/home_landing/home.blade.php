@@ -19,7 +19,7 @@
         pequeños lotes y con envío a todo el país. Comé tranquilo.
       </p>
       <div class="stc-hero-cta">
-        <a href="{{ route('store.catalog') }}" class="stc-btn stc-btn-primary">Ver productos</a>
+        <a href="{{ route('catalog') }}" class="stc-btn stc-btn-primary">Ver productos</a>
         <a href="#nutricion" class="stc-btn stc-btn-ghost">Por qué elegirnos</a>
       </div>
     </div>
