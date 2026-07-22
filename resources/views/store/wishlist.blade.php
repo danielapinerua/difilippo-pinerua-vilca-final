@@ -57,7 +57,7 @@
     @else
         <div class="wishlist-empty text-center">
             <p class="wishlist-empty-text mb-3">No tienes productos en favoritos.</p>
-            <a href="{{ route('store.catalog') }}" class="stc-btn stc-btn-primary">Ir al Catálogo</a>
+            <a href="{{ route('catalog') }}" class="stc-btn stc-btn-primary">Ir al Catálogo</a>
         </div>
     @endif
 </div>
