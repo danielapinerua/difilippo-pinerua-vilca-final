@@ -4,33 +4,15 @@ namespace App\Policies;
 
 use App\Models\Review;
 use App\Models\Usuario;
+use Illuminate\Auth\Access\Response;
 
 class ReviewPolicy
 {
     /**
-     * Otorgar todos los permisos si el usuario es administrador.
+     * Determine whether the user can delete the model.
      */
-    public function before(Usuario $usuario, string $ability): ?bool
-    {
-        if ($usuario->es_admin) {
-            return true;
-        }
-
-        return null;
-    }
-
-    public function view(Usuario $usuario, Review $review): bool
-    {
-        return $usuario->id === $review->usuario_id;
-    }
-
-    public function update(Usuario $usuario, Review $review): bool
-    {
-        return $usuario->id === $review->usuario_id;
-    }
-
     public function delete(Usuario $usuario, Review $review): bool
     {
-        return $usuario->id === $review->usuario_id;
+        return $usuario->id === $review->usuario_id || $usuario->es_admin;
     }
 }

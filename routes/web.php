@@ -45,6 +45,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
     Route::post('/wishlist/toggle/{product}', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
     Route::delete('/wishlist/{product}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
+    
+    // REVIEWS
+    Route::post('/products/{product}/reviews', [App\Http\Controllers\ReviewController::class, 'store'])->name('reviews.store');
+    Route::delete('/reviews/{review}', [App\Http\Controllers\ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+    // ORDERS (Customer)
+    Route::get('/mis-pedidos', [App\Http\Controllers\OrderController::class, 'index'])->name('orders.index');
+    Route::get('/mis-pedidos/{order}', [App\Http\Controllers\OrderController::class, 'show'])->name('orders.show');
 });
 
 // RUTA DUMMY PARA EL DETALLE DEL PRODUCTO

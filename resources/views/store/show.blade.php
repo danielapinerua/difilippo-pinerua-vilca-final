@@ -126,5 +126,82 @@
             </div>
         </section>
     @endif
+
+    
+    {{-- REVIEWS SECTION --}}
+    <section class="product-reviews-section">
+        <h2 class="reviews-title">Reseñas del producto</h2>
+
+        @auth
+        <div class="review-form-container">
+            <h3>Dejar una reseña</h3>
+            <form action="{{ route('reviews.store', $product->id) }}" method="POST" class="review-form">
+                @csrf
+                <div class="form-group">
+                    <label for="rating">Calificación</label>
+                    <select name="rating" id="rating" required class="review-select">
+                        <option value="5">5 Estrellas - Excelente</option>
+                        <option value="4">4 Estrellas - Muy bueno</option>
+                        <option value="3">3 Estrellas - Bueno</option>
+                        <option value="2">2 Estrellas - Regular</option>
+                        <option value="1">1 Estrella - Malo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comentario</label>
+                    <textarea name="comment" id="comment" rows="3" required class="review-textarea" placeholder="Escribe tu opinión sobre el producto..."></textarea>
+                </div>
+                <button type="submit" class="stc-btn stc-btn-primary">Enviar reseña</button>
+            </form>
+        </div>
+        @else
+        <div class="review-guest-prompt">
+            <p>Debes <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">iniciar sesión</a> para dejar una reseña.</p>
+        </div>
+        @endauth
+
+        <div class="reviews-list">
+            @forelse($product->reviews as $review)
+                <div class="review-card">
+                    <div class="review-content-main">
+                        <h4 class="review-author">{{ $review->usuario->nombre }}</h4>
+                        <div class="review-stars">
+                            @for($i = 1; $i <= 5; $i++)
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" 
+                                    fill="{{ $i <= $review->rating ? '#F59E0B' : 'none' }}" 
+                                    stroke="{{ $i <= $review->rating ? '#F59E0B' : '#ccc' }}" 
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"/>
+                                </svg>
+                            @endfor
+                        </div>
+                        <p class="review-text">{{ $review->comment }}</p>
+                    </div>
+                    
+                    @can('delete', $review)
+                        <div class="review-actions">
+                            <form action="{{ route('reviews.destroy', $review->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn-delete-review" title="Eliminar reseña">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                      <path d="M4 7l16 0" />
+                                      <path d="M10 11l0 6" />
+                                      <path d="M14 11l0 6" />
+                                      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    @endcan
+                </div>
+            @empty
+                <p class="no-reviews">Aún no hay reseñas para este producto. ¡Sé el primero en opinar!</p>
+            @endforelse
+        </div>
+    </section>
+
 </div>
 @endsection

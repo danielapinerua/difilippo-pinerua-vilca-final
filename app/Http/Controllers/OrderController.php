@@ -36,4 +36,16 @@ class OrderController extends Controller
             return back()->withErrors(['status' => $e->getMessage()]);
         }
     }
+
+    public function index()
+    {
+        $orders = Auth::user()->orders()->latest()->get();
+        return view('orders.index', compact('orders'));
+    }
+
+    public function show(Order $order)
+    {
+        $this->authorize('view', $order);
+        return view('orders.show', compact('order'));
+    }
 }
