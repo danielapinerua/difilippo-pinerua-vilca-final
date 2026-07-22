@@ -18,17 +18,20 @@ class CategoryProductSeeder extends Seeder
 
 
         // SNACKS
+        $snacksProductos = [
+            'Snack Aritos de arroz crema y cebolla',
+            'Chips de pizza Gallo',
+            'Papas fritas Lays clásicas',
+            'Snacks de batata Quento mostaza y miel',
+            'Snacks de arroz sabor queso Dos Hermanos'
+        ];
 
-        Product::where('name', 'Snack Aritos de arroz crema y cebolla')
-            ->first()
-            ->categories()
-            ->attach($snacks->id);
-
-        Product::where('name', 'Chips de pizza Gallo')
-            ->first()
-            ->categories()
-            ->attach($snacks->id);
-
+        foreach ($snacksProductos as $producto) {
+            Product::where('name', $producto)
+                ->first()
+                ->categories()
+                ->attach($snacks->id);
+        }
 
         // DULCES
 
@@ -57,7 +60,8 @@ class CategoryProductSeeder extends Seeder
             'Bizcochuelo de vainilla Exquisita sin gluten',
             'Premezcla Pureza sin gluten',
             'Premezcla Pureza para chipa sin gluten',
-            'Premezcla para ñoquis de papa Arcor sin gluten'
+            'Premezcla para ñoquis de papa Arcor sin gluten',
+            'Premezcla para brownie Arcor sin gluten'
         ];
 
         foreach ($harinasProductos as $producto) {
@@ -71,9 +75,12 @@ class CategoryProductSeeder extends Seeder
         // SALADOS
 
         $saladosProductos = [
+            'Pan hamburguesa Schär',
             'Tapas para empanadas La Sálteña sin gluten',
-            'Ravioles de espinaca y ricota Leofanti', 
-            'Fideos Matarazzo sin gluten tirabuzón'
+            'Fideos Matarazzo sin gluten tirabuzón',
+            'Tapas para tarta La Salteña sin gluten',
+            'Pan Rallado Preferido sin gluten',
+            'Pan con semillas Franks'
         ];
 
         foreach ($saladosProductos as $producto) {
@@ -87,10 +94,12 @@ class CategoryProductSeeder extends Seeder
         // CONGELADOS
 
         $congeladosProductos = [
+            'Ravioles de calabaza y queso Leofanti',
             'Empanadas de carne Il Sole',
             'Pizza de muzzarella Il Sole',
             'Medallones de soja Dimax',
-            'Nuggets de pollo Argenti'
+            'Nuggets de pollo Maheso',
+            'Pizza con jamón y provolone Glufreez'
         ];
 
         foreach ($congeladosProductos as $producto) {

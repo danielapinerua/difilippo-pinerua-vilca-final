@@ -122,8 +122,8 @@ class ProductSeeder extends Seeder
             ]);
 
         Product::create([
-            'name' => 'Ravioles de espinaca y ricota Leofanti',
-            'description' => 'Ravioles de espinaca y ricota sin gluten marca Leofanti de 360 gramos.',
+            'name' => 'Ravioles de calabaza y queso Leofanti',
+            'description' => 'Ravioles de calabaza y queso sin gluten marca Leofanti de 360 gramos.',
             'price' => 4000,
             'stock' => 30,
             'image' => 'products/ravioles.webp'
@@ -170,8 +170,8 @@ class ProductSeeder extends Seeder
             ]);
 
         Product::create([
-            'name' => 'Nuggets de pollo Argenti',
-            'description' => 'Nuggets de pollo sin gluten marca Argenti de 300 gramos.',
+            'name' => 'Nuggets de pollo Maheso',
+            'description' => 'Nuggets de pollo sin gluten marca Maheso de 300 gramos.',
             'price' => 4000,
             'stock' => 10,
             'image' => 'products/nuggets.webp'
@@ -185,6 +185,70 @@ class ProductSeeder extends Seeder
             'image' => 'products/premezclanoquis.webp'
             ]);
 
+        Product::create([
+            'name' => 'Papas fritas Lays clásicas',
+            'description' => 'Papas fritas clásicas marca Lays de 330 gramos, libres de gluten.',
+            'price' => 2800,
+            'stock' => 20,
+            'image' => 'products/lays.webp'
+            ]);
+
+        Product::create([
+            'name' => 'Snacks de batata Quento mostaza y miel',
+            'description' => 'Snacks de batata sabor mostaza y miel marca Quento, libres de gluten, 70 gramos.',
+            'price' => 2200,
+            'stock' => 15,
+            'image' => 'products/quentobatatas.webp'
+            ]);
+
+        Product::create([
+            'name' => 'Pizza con jamón y provolone Glufreez',
+            'description' => 'Pizza congelada sin gluten con jamón y provolone marca Glufreez de 440 gramos.',
+            'price' => 5500,
+            'stock' => 10,
+            'image' => 'products/pizzacongelada.webp'
+            ]);
+
+        Product::create([
+            'name' => 'Tapas para tarta La Salteña sin gluten',
+            'description' => 'Tapas para tarta sin gluten marca La Salteña de 380 gramos.',
+            'price' => 3200,
+            'stock' => 25,
+            'image' => 'products/tapatarta.webp'
+            ]);
+
+        Product::create([
+            'name' => 'Premezcla para brownie Arcor sin gluten',
+            'description' => 'Premezcla para brownie sin gluten marca Arcor de 420 gramos.',
+            'price' => 2600,
+            'stock' => 30,
+            'image' => 'products/brownie.webp'
+            ]);
+
+        Product::create([
+            'name' => 'Snacks de arroz sabor queso Dos Hermanos',
+            'description' => 'Snacks de arroz horneados sabor queso sin gluten marca Dos Hermanos de 80 gramos.',
+            'price' => 1500,
+            'stock' => 40,
+            'image' => 'products/snacksqueso.webp'
+            ]);
+
+        Product::create([
+            'name' => 'Pan Rallado Preferido sin gluten',
+            'description' => 'Pan rallado sin gluten marca Preferido de 350 gramos.',
+            'price' => 2000,
+            'stock' => 50,
+            'image' => 'products/panrallado.webp'
+            ]);
+
+        Product::create([
+            'name' => 'Pan con semillas Franks',
+            'description' => 'Pan con semillas sin gluten marca Franks de 500 gramos.',
+            'price' => 3500,
+            'stock' => 50,
+            'image' => 'products/panfranks.webp'
+            ]);
         
+
     }
 }
