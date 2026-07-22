@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\CatalogController;
 
 // GUEST (no logueado)
 Route::middleware('guest')->group(function () {
@@ -23,7 +24,7 @@ Route::get('/', function () {
 Route::view('/about', 'pages.about')->name('about');
 
 // RUTA DEL CATÁLOGO PÚBLICO
-Route::get('/catalog', [StoreController::class, 'catalog'])->name('store.catalog');
+Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
 
 use App\Http\Controllers\WishlistController;
 
