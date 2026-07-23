@@ -151,3 +151,24 @@
 
   .stc-nav-cta { width: 100%; justify-content: center; }
 }
+.stc-nav-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.nav-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: var(--moss, #7D8570);
+  color: var(--bone, #F2E9DA);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}

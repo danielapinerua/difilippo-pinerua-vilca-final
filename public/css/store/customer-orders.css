@@ -1,0 +1,210 @@
+/* customer-orders.css */
+
+.customer-orders-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem 1.5rem;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--cafe-noir, #34261C);
+}
+
+.customer-orders-header {
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.co-back-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--moss, #7D8570);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+.co-back-link:hover {
+    color: var(--kombu, #4A5344);
+}
+
+.customer-orders-header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 3.5vw, 2.6rem);
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: var(--cafe-noir, #34261C);
+}
+
+.customer-orders-header p {
+    color: #6d5a47; /* earth tone soft */
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* LISTA Y TARJETAS */
+.customer-orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.co-card {
+    background: #FFFDF9; /* bone-soft */
+    border: 1px solid #EAE0CC;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(52, 38, 28, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.co-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(52, 38, 28, 0.06);
+    border-color: #DCCBA9;
+}
+
+/* HEADER TARJETA */
+.co-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #EAE0CC;
+    padding-bottom: 1rem;
+}
+
+.co-order-id {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--cafe-noir, #34261C);
+}
+
+/* BADGES DE ESTADO */
+.co-order-status {
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.co-status-pendiente {
+    background: #FFF3CD;
+    color: #856404;
+}
+
+.co-status-pagado {
+    background: #D4EDDA;
+    color: #155724;
+}
+
+.co-status-enviado {
+    background: #CCE5FF;
+    color: #004085;
+}
+
+.co-status-entregado {
+    background: #E2E3E5;
+    color: #383D41;
+}
+
+.co-status-cancelado {
+    background: #F8D7DA;
+    color: #721C24;
+}
+
+/* CUERPO DE TARJETA */
+.co-card-body {
+    display: flex;
+    gap: 3rem;
+    padding: 0.5rem 0;
+}
+
+.co-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.co-info-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8B7A6B;
+    letter-spacing: 0.05em;
+}
+
+.co-info-value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--cafe-noir, #34261C);
+}
+
+.co-price {
+    font-weight: 700;
+    color: var(--kombu, #4A5344);
+}
+
+/* FOOTER DE TARJETA */
+.co-card-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.5rem;
+}
+
+.co-btn-detail {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    background: transparent;
+    border: 1px solid var(--moss, #7D8570);
+    color: var(--moss, #7D8570);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.co-btn-detail:hover {
+    background: var(--moss, #7D8570);
+    color: #FFF;
+}
+
+/* EMPTY STATE */
+.co-empty-state {
+    text-align: center;
+    padding: 4rem 1.5rem;
+    background: #FFFDF9;
+    border: 1px dashed #DCCBA9;
+    border-radius: 12px;
+}
+
+.co-empty-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background: #F2E9DA;
+    border-radius: 50%;
+    color: var(--tan, #C08A2E);
+    margin-bottom: 1.5rem;
+}
+
+.co-empty-state h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem;
+    color: var(--cafe-noir, #34261C);
+}
+
+.co-empty-state p {
+    color: #6d5a47;
+    margin: 0 0 2rem;
+}

@@ -54,6 +54,9 @@ Route::middleware('auth')->group(function () {
     // ORDERS (Customer)
     Route::get('/mis-pedidos', [App\Http\Controllers\OrderController::class, 'index'])->name('orders.index');
     Route::get('/mis-pedidos/{order}', [App\Http\Controllers\OrderController::class, 'show'])->name('orders.show');
+
+    // PROFILE
+    Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
 });
 
 // RUTA DUMMY PARA EL DETALLE DEL PRODUCTO

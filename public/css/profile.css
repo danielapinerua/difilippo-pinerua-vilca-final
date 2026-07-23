@@ -1,0 +1,120 @@
+/* profile.css */
+
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem 1.5rem;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--cafe-noir, #34261C);
+}
+
+.profile-header {
+    margin-bottom: 2.5rem;
+    text-align: left;
+}
+
+.profile-header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 3.5vw, 2.6rem);
+    font-weight: 600;
+    margin: 0.5rem 0 0;
+    color: var(--cafe-noir, #34261C);
+}
+
+.profile-header h1::after {
+    content: '';
+    display: block;
+    width: 46px;
+    height: 3px;
+    border-radius: 2px;
+    background: #C08A2E; /* cat-gold / accent color */
+    margin-top: 1rem;
+}
+
+.profile-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 992px) {
+    .profile-content {
+        grid-template-columns: 350px 1fr;
+        align-items: start;
+    }
+}
+
+/* SECTION 1: INFO CARD */
+.profile-info-card {
+    background: #FFFDF9; /* cat-surface */
+    border: 1px solid #DCCBA9; /* cat-line */
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(52, 38, 28, 0.03);
+}
+
+.profile-info-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    color: var(--cafe-noir, #34261C);
+    border-bottom: 1px dashed #DCCBA9;
+    padding-bottom: 1rem;
+}
+
+.profile-data-row {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.profile-data-row:last-child {
+    margin-bottom: 0;
+}
+
+.profile-data-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8B7A6B; /* cat-ink-soft */
+}
+
+.profile-data-value {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--cafe-noir, #34261C);
+}
+
+/* SECTION 2: ACTIONS GRID */
+.profile-actions-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    color: var(--cafe-noir, #34261C);
+}
+
+.profile-cat-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Modificadores para SVGs dentro de stc-cat-icon */
+.profile-cat-grid .stc-cat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-cat-grid .stc-cat-icon svg {
+    color: var(--moss, #7D8570);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.profile-cat-grid .stc-cat-card:hover .stc-cat-icon svg {
+    transform: scale(1.1);
+    color: #4A5344; /* kombu */
+}
