@@ -101,3 +101,47 @@
     margin-bottom: 8px;
     font-size: 14px;
 }
+
+/* Classes abstracted from inline styles */
+.order-status-select {
+    max-width: 200px;
+}
+
+.order-items-title {
+    margin-top: 40px;
+    margin-bottom: 16px;
+    color: var(--cafe-noir);
+}
+
+.order-item-product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.order-item-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 4px;
+    border: 1px solid var(--bone-soft, #eae0cc);
+}
+
+.order-item-placeholder {
+    width: 40px;
+    height: 40px;
+    background: var(--bone-soft, #eae0cc);
+    border-radius: 4px;
+}
+
+.order-total-label {
+    text-align: right;
+    font-weight: 600;
+    padding: 16px;
+}
+
+.order-total-value {
+    font-weight: 600;
+    padding: 16px;
+}
+

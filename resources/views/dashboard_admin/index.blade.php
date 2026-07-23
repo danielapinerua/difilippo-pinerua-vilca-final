@@ -82,7 +82,7 @@
         <h3>Pedidos</h3>
         <p>Gestioná los pedidos y sus estados de envío.</p>
         <div class="admin-panel-actions">
-          <a href="{{ route('admin.orders.index') }}" class="stc-btn stc-btn-primary full-width" style="width:100%; justify-content:center;">Gestionar pedidos</a>
+          <a href="{{ route('admin.orders.index') }}" class="stc-btn stc-btn-primary full-width">Gestionar pedidos</a>
         </div>
       </div>
 

@@ -34,7 +34,7 @@
           @enderror
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <div class="admin-form-row">
             <div class="admin-form-group">
               <label for="price" class="admin-form-label">Precio</label>
               <input type="number" step="0.01" name="price" id="price" value="{{ old('price', $product->price) }}" class="admin-form-input @error('price') is-invalid @enderror" required>
@@ -52,13 +52,13 @@
             </div>
         </div>
 
-        <div class="admin-form-group" style="display: flex; gap: 16px; align-items: flex-start;">
+        <div class="admin-form-group admin-file-group">
           @if($product->image)
-            <img src="{{ asset('storage/' . $product->image) }}" alt="Imagen actual" style="width: 80px; height: 80px; object-fit: contain; border-radius: 6px; border: 1px solid #ccc;">
+            <img src="{{ asset('storage/' . $product->image) }}" alt="Imagen actual" class="admin-file-preview">
           @endif
-          <div style="flex-grow: 1;">
-            <label for="image" class="admin-form-label">Cambiar imagen</label>
-            <input type="file" name="image" id="image" accept="image/*" class="admin-form-input @error('image') is-invalid @enderror" style="padding: 9px 16px;">
+          <div class="admin-file-input-wrapper">
+            <label for="image" class="admin-form-label">Nueva Imagen (opcional)</label>
+            <input type="file" name="image" id="image" accept="image/*" class="admin-form-input admin-file-input @error('image') is-invalid @enderror">
             @error('image')
               <span class="admin-form-error">{{ $message }}</span>
             @enderror
@@ -66,13 +66,13 @@
         </div>
 
         <div class="admin-form-group">
-          <label class="admin-form-label" style="margin-bottom: 12px;">Categorías</label>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label class="admin-form-label admin-form-label-spaced">Categorías</label>
+          <div class="admin-checkbox-group">
               @foreach($categories as $category)
-                  <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--cafe-noir); cursor: pointer;">
+                  <label class="admin-checkbox-label">
                       <input type="checkbox" name="categories[]" value="{{ $category->id }}"
-                          {{ (is_array(old('categories')) && in_array($category->id, old('categories'))) || (!old('categories') && in_array($category->id, $product->categories->pluck('id')->toArray())) ? 'checked' : '' }}
-                          style="width: 16px; height: 16px; accent-color: var(--moss);">
+                          class="admin-checkbox-input"
+                          {{ (is_array(old('categories')) && in_array($category->id, old('categories'))) || (!old('categories') && in_array($category->id, $product->categories->pluck('id')->toArray())) ? 'checked' : '' }}>
                       {{ $category->name }}
                   </label>
               @endforeach

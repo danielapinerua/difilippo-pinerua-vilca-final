@@ -12,7 +12,7 @@
 <div class="page-admin-categories">
 
   <section class="stc-section">
-    <a href="{{ route('admin.dashboard') }}" class="admin-back-link" style="margin-bottom: 24px; display: inline-block;">← Volver al panel</a>
+    <a href="{{ route('admin.dashboard') }}" class="admin-back-link admin-back-link-top">← Volver al panel</a>
     <div class="stc-section-head">
       <div class="stc-section-head-main">
         <span class="eyebrow">Panel</span>
@@ -27,7 +27,7 @@
       </div>
     @endif
     @if (session('error'))
-      <div class="admin-alert admin-alert-danger" style="background: #f8d7da; color: #721c24; padding: 12px 16px; border-radius: 8px; margin-bottom: 24px;">
+      <div class="admin-alert admin-alert-danger">
         <strong>Error:</strong> {{ session('error') }}
       </div>
     @endif
@@ -50,7 +50,7 @@
               <td>#{{ str_pad($order->id, 5, '0', STR_PAD_LEFT) }}</td>
               <td>
                 {{ $order->usuario->nombre }}<br>
-                <small style="color:#666;">{{ $order->usuario->email }}</small>
+                <small class="admin-order-email">{{ $order->usuario->email }}</small>
               </td>
               <td>{{ $order->created_at->format('d/m/Y H:i') }}</td>
               <td>${{ number_format($order->total, 2, ',', '.') }}</td>
@@ -74,7 +74,7 @@
       </table>
     </div>
     
-    <div style="margin-top: 24px;">
+    <div class="admin-pagination-wrapper">
       {{ $orders->links() }}
     </div>
 

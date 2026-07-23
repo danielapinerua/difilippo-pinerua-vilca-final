@@ -11,7 +11,7 @@
 <div class="page-admin-products">
 
   <section class="stc-section">
-    <a href="{{ route('admin.dashboard') }}" class="admin-back-link" style="margin-bottom: 24px; display: inline-block;">← Volver al panel</a>
+    <a href="{{ route('admin.dashboard') }}" class="admin-back-link admin-back-link-top">← Volver al panel</a>
     <div class="stc-section-head">
       <div class="stc-section-head-main">
         <span class="eyebrow">Panel</span>

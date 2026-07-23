@@ -370,3 +370,9 @@
   cursor: not-allowed;
 }
 
+
+.product-card-categories {
+    font-size: 12px;
+    color: gray;
+}
+

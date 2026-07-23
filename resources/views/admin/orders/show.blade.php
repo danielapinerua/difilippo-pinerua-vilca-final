@@ -12,7 +12,7 @@
 <div class="page-admin-categories">
 
   <section class="stc-section">
-    <a href="{{ route('admin.orders.index') }}" class="admin-back-link" style="margin-bottom: 24px; display: inline-block;">← Volver al listado</a>
+    <a href="{{ route('admin.orders.index') }}" class="admin-back-link admin-back-link-top">← Volver al listado</a>
     <div class="stc-section-head">
       <div class="stc-section-head-main">
         <span class="eyebrow">Pedido #{{ str_pad($order->id, 5, '0', STR_PAD_LEFT) }}</span>
@@ -30,7 +30,7 @@
       </div>
     @endif
     @if (session('error'))
-      <div class="admin-alert admin-alert-danger" style="background: #f8d7da; color: #721c24; padding: 12px 16px; border-radius: 8px; margin-bottom: 24px;">
+      <div class="admin-alert admin-alert-danger">
         <strong>Error:</strong> {{ session('error') }}
       </div>
     @endif
@@ -59,7 +59,7 @@
                 
                 <label for="status">Actualizar estado a:</label>
                 <div class="d-flex gap-2 mt-2">
-                    <select name="status" id="status" class="admin-form-input" style="max-width: 200px;">
+                    <select name="status" id="status" class="admin-form-input order-status-select">
                         @if($order->status->value == \App\Enums\OrderStatus::PENDIENTE->value)
                             <option value="{{ \App\Enums\OrderStatus::PAGADO->value }}">Pagado</option>
                             <option value="{{ \App\Enums\OrderStatus::CANCELADO->value }}">Cancelado</option>
@@ -78,7 +78,7 @@
     </div>
 
     <!-- Sección 2: Productos -->
-    <h3 style="margin-top: 40px; margin-bottom: 16px; color: var(--cafe-noir);">Ítems del Pedido</h3>
+    <h3 class="order-items-title">Ítems del Pedido</h3>
     <div class="admin-table-wrap">
       <table class="admin-table">
         <thead>
@@ -93,11 +93,11 @@
           @foreach($order->items as $item)
             <tr>
               <td>
-                <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="order-item-product">
                     @if($item->product && $item->product->image)
-                        <img src="{{ asset('storage/' . $item->product->image) }}" alt="img" style="width: 40px; height: 40px; object-fit: contain; border-radius: 4px; border: 1px solid #eae0cc;">
+                        <img src="{{ asset('storage/' . $item->product->image) }}" alt="img" class="order-item-image">
                     @else
-                        <div style="width: 40px; height: 40px; background: #eae0cc; border-radius: 4px;"></div>
+                        <div class="order-item-placeholder"></div>
                     @endif
                     <span>{{ $item->product ? $item->product->name : 'Producto Eliminado' }}</span>
                 </div>
@@ -110,8 +110,8 @@
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="3" style="text-align: right; font-weight: 600; padding: 16px;">Total:</td>
-            <td style="font-weight: 600; padding: 16px;">${{ number_format($order->total, 2, ',', '.') }}</td>
+            <td colspan="3" class="order-total-label">Total:</td>
+            <td class="order-total-value">${{ number_format($order->total, 2, ',', '.') }}</td>
           </tr>
         </tfoot>
       </table>

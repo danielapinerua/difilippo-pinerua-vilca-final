@@ -103,3 +103,63 @@ textarea.admin-form-input {
         justify-content: center;
     }
 }
+
+/* Classes abstracted from inline styles */
+.admin-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+input[type="file"].admin-form-input,
+.admin-file-input {
+    padding: 9px 16px;
+}
+
+.admin-form-label-spaced {
+    margin-bottom: 12px;
+}
+
+.admin-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.admin-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--cafe-noir);
+    cursor: pointer;
+}
+
+.admin-checkbox-label.fw-500 {
+    font-weight: 500;
+}
+
+.admin-checkbox-input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--moss);
+}
+
+.admin-file-group {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.admin-file-preview {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.admin-file-input-wrapper {
+    flex-grow: 1;
+}
+

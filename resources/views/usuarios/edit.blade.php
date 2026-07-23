@@ -35,8 +35,8 @@
         </div>
 
         <div class="admin-form-group">
-          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--cafe-noir); cursor: pointer; font-weight: 500;">
-            <input type="checkbox" name="es_admin" style="width: 16px; height: 16px; accent-color: var(--moss);" {{ old('es_admin', $usuario->es_admin) ? 'checked' : '' }}>
+          <label class="admin-checkbox-label fw-500">
+            <input type="checkbox" name="es_admin" class="admin-checkbox-input" {{ old('es_admin', $usuario->es_admin) ? 'checked' : '' }}>
             Es Administrador
           </label>
         </div>

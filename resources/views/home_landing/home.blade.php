@@ -50,22 +50,22 @@
     </div>
 
     <div class="stc-cat-grid">
-      <a href="{{ route('catalog', ['category' => 'Snacks']) }}" class="stc-cat-card" style="text-decoration: none; color: inherit;">
+      <a href="{{ route('catalog', ['category' => 'Snacks']) }}" class="stc-cat-card">
         <div class="stc-cat-icon"></div>
         <h3>Snacks</h3>
         <p class="stc-cat-tag">Galletitas, barritas, semillas</p>
       </a>
-      <a href="{{ route('catalog', ['category' => 'Dulces']) }}" class="stc-cat-card" style="text-decoration: none; color: inherit;">
+      <a href="{{ route('catalog', ['category' => 'Dulces']) }}" class="stc-cat-card">
         <div class="stc-cat-icon"></div>
         <h3>Dulces</h3>
         <p class="stc-cat-tag">Alfajores, chocolates, postres</p>
       </a>
-      <a href="{{ route('catalog', ['category' => 'Harinas']) }}" class="stc-cat-card" style="text-decoration: none; color: inherit;">
+      <a href="{{ route('catalog', ['category' => 'Harinas']) }}" class="stc-cat-card">
         <div class="stc-cat-icon"></div>
         <h3>Harinas</h3>
         <p class="stc-cat-tag">Premezclas, féculas, rebozadores</p>
       </a>
-      <a href="{{ route('catalog', ['category' => 'Congelados']) }}" class="stc-cat-card" style="text-decoration: none; color: inherit;">
+      <a href="{{ route('catalog', ['category' => 'Congelados']) }}" class="stc-cat-card">
         <div class="stc-cat-icon"></div>
         <h3>Congelados</h3>
         <p class="stc-cat-tag">Tartas, empanadas, viandas</p>

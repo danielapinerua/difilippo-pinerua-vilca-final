@@ -33,7 +33,7 @@
           @enderror
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <div class="admin-form-row">
             <div class="admin-form-group">
               <label for="price" class="admin-form-label">Precio</label>
               <input type="number" step="0.01" name="price" id="price" value="{{ old('price') }}" class="admin-form-input @error('price') is-invalid @enderror" required>
@@ -53,20 +53,19 @@
 
         <div class="admin-form-group">
           <label for="image" class="admin-form-label">Imagen del Producto</label>
-          <input type="file" name="image" id="image" accept="image/*" class="admin-form-input @error('image') is-invalid @enderror" style="padding: 9px 16px;">
+          <input type="file" name="image" id="image" accept="image/*" class="admin-form-input admin-file-input @error('image') is-invalid @enderror">
           @error('image')
             <span class="admin-form-error">{{ $message }}</span>
           @enderror
         </div>
 
         <div class="admin-form-group">
-          <label class="admin-form-label" style="margin-bottom: 12px;">Categorías</label>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label class="admin-form-label admin-form-label-spaced">Categorías</label>
+          <div class="admin-checkbox-group">
               @foreach($categories as $category)
-                  <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--cafe-noir); cursor: pointer;">
-                      <input type="checkbox" name="categories[]" value="{{ $category->id }}"
-                          {{ is_array(old('categories')) && in_array($category->id, old('categories')) ? 'checked' : '' }}
-                          style="width: 16px; height: 16px; accent-color: var(--moss);">
+                  <label class="admin-checkbox-label">
+                      <input type="checkbox" name="categories[]" value="{{ $category->id }}" class="admin-checkbox-input"
+                          {{ is_array(old('categories')) && in_array($category->id, old('categories')) ? 'checked' : '' }}>
                       {{ $category->name }}
                   </label>
               @endforeach

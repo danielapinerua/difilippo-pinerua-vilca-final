@@ -386,3 +386,8 @@
 @media (max-width: 520px) {
   .page-home .stc-cat-grid { grid-template-columns: 1fr; }
 }
+a.stc-cat-card {
+    text-decoration: none;
+    color: inherit;
+}
+

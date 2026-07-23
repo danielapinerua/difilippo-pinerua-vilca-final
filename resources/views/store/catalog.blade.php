@@ -110,7 +110,7 @@
                             </p>
 
                             <!-- 🔥 MOSTRAR CATEGORÍAS (BONUS PRO) -->
-                            <p style="font-size: 12px; color: gray;">
+                            <p class="product-card-categories">
                                 @foreach($product->categories as $cat)
                                     {{ $cat->name }} 
                                 @endforeach
