@@ -140,6 +140,43 @@
                 @endforelse
             </div>
 
+            @if ($products->lastPage() > 1)
+                <div class="catalog-pagination">
+                    <ul class="pagination">
+                        {{-- Previous Page Link --}}
+                        @if (!$products->onFirstPage())
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $products->appends(request()->query())->previousPageUrl() }}" rel="prev">&lsaquo;</a>
+                            </li>
+                        @else
+                            <li class="page-item disabled" aria-disabled="true">
+                                <span class="page-link">&lsaquo;</span>
+                            </li>
+                        @endif
+
+                        {{-- Pagination Elements --}}
+                        @for ($i = 1; $i <= $products->lastPage(); $i++)
+                            @if ($i == $products->currentPage())
+                                <li class="page-item active" aria-current="page"><span class="page-link">{{ $i }}</span></li>
+                            @else
+                                <li class="page-item"><a class="page-link" href="{{ $products->appends(request()->query())->url($i) }}">{{ $i }}</a></li>
+                            @endif
+                        @endfor
+
+                        {{-- Next Page Link --}}
+                        @if ($products->hasMorePages())
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $products->appends(request()->query())->nextPageUrl() }}" rel="next">&rsaquo;</a>
+                            </li>
+                        @else
+                            <li class="page-item disabled" aria-disabled="true">
+                                <span class="page-link">&rsaquo;</span>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+            @endif
+
         </main>
 
     </div>

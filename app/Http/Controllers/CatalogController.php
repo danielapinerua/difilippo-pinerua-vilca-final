@@ -35,7 +35,7 @@ class CatalogController extends Controller
                     }
 
         // 🔹 PRODUCTOS
-        $products = $query->get();
+        $products = $query->paginate(15);
 
         return view('store.catalog', compact('products', 'categories'));
     }

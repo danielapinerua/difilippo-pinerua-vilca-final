@@ -99,14 +99,14 @@
                         </form>
                     @endauth
 
-                    <a href="{{ route('store.catalog') }}" class="stc-btn stc-btn-secondary w-100 justify-content-center">Seguir comprando</a>
+                    <a href="{{ route('catalog') }}" class="stc-btn stc-btn-secondary w-100 justify-content-center">Seguir comprando</a>
                 </div>
             </div>
         </div>
     @else
         <div class="cart-empty text-center">
             <p class="cart-empty-text mb-3">Tu carrito está vacío.</p>
-            <a href="{{ route('store.catalog') }}" class="stc-btn stc-btn-primary">Ir al Catálogo</a>
+            <a href="{{ route('catalog') }}" class="stc-btn stc-btn-primary">Ir al Catálogo</a>
         </div>
     @endif
 </div>

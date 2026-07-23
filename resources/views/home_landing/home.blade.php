@@ -50,26 +50,26 @@
     </div>
 
     <div class="stc-cat-grid">
-      <div class="stc-cat-card">
-        <div class="stc-cat-icon"></div>
-        <h3>Panificados</h3>
-        <p class="stc-cat-tag">Pan, facturas, prepizzas</p>
-      </div>
-      <div class="stc-cat-card">
+      <a href="{{ route('catalog', ['category' => 'Snacks']) }}" class="stc-cat-card" style="text-decoration: none; color: inherit;">
         <div class="stc-cat-icon"></div>
         <h3>Snacks</h3>
         <p class="stc-cat-tag">Galletitas, barritas, semillas</p>
-      </div>
-      <div class="stc-cat-card">
+      </a>
+      <a href="{{ route('catalog', ['category' => 'Dulces']) }}" class="stc-cat-card" style="text-decoration: none; color: inherit;">
         <div class="stc-cat-icon"></div>
-        <h3>Despensa</h3>
-        <p class="stc-cat-tag">Harinas, premezclas, pastas</p>
-      </div>
-      <div class="stc-cat-card">
+        <h3>Dulces</h3>
+        <p class="stc-cat-tag">Alfajores, chocolates, postres</p>
+      </a>
+      <a href="{{ route('catalog', ['category' => 'Harinas']) }}" class="stc-cat-card" style="text-decoration: none; color: inherit;">
+        <div class="stc-cat-icon"></div>
+        <h3>Harinas</h3>
+        <p class="stc-cat-tag">Premezclas, féculas, rebozadores</p>
+      </a>
+      <a href="{{ route('catalog', ['category' => 'Congelados']) }}" class="stc-cat-card" style="text-decoration: none; color: inherit;">
         <div class="stc-cat-icon"></div>
         <h3>Congelados</h3>
         <p class="stc-cat-tag">Tartas, empanadas, viandas</p>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -112,7 +112,7 @@
     <span class="eyebrow">Empezá hoy</span>
     <h2>Tu próxima compra sin TACC está a un clic.</h2>
     <div class="stc-hero-cta">
-      <a href="#categorias" class="stc-btn stc-btn-primary">Explorar el mercado</a>
+      <a href="{{ route('catalog') }}" class="stc-btn stc-btn-primary">Explorar el mercado</a>
     </div>
   </section>
 

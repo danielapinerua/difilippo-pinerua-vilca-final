@@ -21,9 +21,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
-    
-        // Opcional: si usas MySQL 8.0 o MariaDB 10.2 o superior
-        // puedes usar longitud completa con utf8mb4
-        // Schema::defaultStringLength(255);
+        \Illuminate\Pagination\Paginator::useBootstrapFive();
     }
 }
