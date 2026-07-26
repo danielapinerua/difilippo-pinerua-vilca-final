@@ -47,19 +47,28 @@
                 @endif
               </td>
               <td>
-                <div class="admin-table-actions">
+                <div class="admin-actions-group">
                   @if($category->trashed())
-                    <form action="{{ route('categories.restore', $category->id) }}" method="POST">
+                    <form action="{{ route('categories.restore', $category->id) }}" method="POST" class="form-delete-inline">
                       @csrf
                       @method('PATCH')
-                      <button type="submit" class="stc-btn stc-btn-ghost" onclick="return confirm('¿Estás seguro de restaurar esta categoría?')">Restaurar</button>
+                      <button type="submit" class="stc-btn stc-btn-ghost admin-action-btn" onclick="return confirm('¿Estás seguro de restaurar esta categoría?')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"></path><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path></svg>
+                        Restaurar
+                      </button>
                     </form>
                   @else
-                    <a href="{{ route('categories.edit', $category->id) }}" class="stc-btn stc-btn-ghost">Editar</a>
-                    <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
+                    <a href="{{ route('categories.edit', $category->id) }}" class="stc-btn stc-btn-ghost admin-action-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                      Editar
+                    </a>
+                    <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="form-delete-inline">
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="admin-btn-danger" onclick="return confirm('¿Estás seguro de eliminar esta categoría?')">Eliminar</button>
+                      <button type="submit" class="admin-btn-danger admin-action-btn" onclick="return confirm('¿Estás seguro de eliminar esta categoría?')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                        Eliminar
+                      </button>
                     </form>
                   @endif
                 </div>

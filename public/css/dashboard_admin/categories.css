@@ -252,3 +252,79 @@
     justify-content: center;
 }
 
+/* UNIFIED ADMIN ACTION BUTTONS */
+.admin-actions-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.form-delete-inline {
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+}
+
+.btn-admin-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-admin-action svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-edit {
+    background-color: #EAE0CC;
+    color: #4A5344;
+}
+
+.btn-edit:hover {
+    background-color: #DCCBA9;
+    color: #2E2C28;
+}
+
+.btn-delete {
+    background-color: #F8D7DA;
+    color: #DC3545;
+}
+
+.btn-delete:hover {
+    background-color: #DC3545;
+    color: #FFF;
+}
+
+.btn-restore {
+    background-color: #D1ECF1;
+    color: #0C5460;
+}
+
+.btn-restore:hover {
+    background-color: #17A2B8;
+    color: #FFF;
+}
+.admin-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 120px;
+    height: 38px;
+    padding: 0 !important;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.admin-action-btn:hover, .admin-action-btn:active {
+    transform: none !important;
+}

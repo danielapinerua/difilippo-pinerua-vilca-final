@@ -58,15 +58,17 @@
               <td>{{ $usuario->email }}</td>
               <td>Admin</td>
               <td>
-                <div class="admin-table-actions">
-                  <a href="{{ route('usuarios.edit', $usuario->id) }}" class="stc-btn stc-btn-ghost">
+                <div class="admin-actions-group">
+                  <a href="{{ route('usuarios.edit', $usuario->id) }}" class="stc-btn stc-btn-ghost admin-action-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                     Editar
                   </a>
 
-                  <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST">
+                  <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST" class="form-delete-inline">
                     @csrf
                     @method('DELETE')
-                    <button class="admin-btn-danger" onclick="return confirm('¿Eliminar usuario?')">
+                    <button type="submit" class="admin-btn-danger admin-action-btn" onclick="return confirm('¿Eliminar usuario?')">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                       Eliminar
                     </button>
                   </form>
@@ -92,15 +94,17 @@
               <td>{{ $usuario->email }}</td>
               <td>Cliente</td>
               <td>
-                <div class="admin-table-actions">
-                  <a href="{{ route('usuarios.edit', $usuario->id) }}" class="stc-btn stc-btn-ghost">
+                <div class="admin-actions-group">
+                  <a href="{{ route('usuarios.edit', $usuario->id) }}" class="stc-btn stc-btn-ghost admin-action-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                     Editar
                   </a>
 
-                  <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST">
+                  <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST" class="form-delete-inline">
                     @csrf
                     @method('DELETE')
-                    <button class="admin-btn-danger" onclick="return confirm('¿Eliminar usuario?')">
+                    <button type="submit" class="admin-btn-danger admin-action-btn" onclick="return confirm('¿Eliminar usuario?')">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                       Eliminar
                     </button>
                   </form>

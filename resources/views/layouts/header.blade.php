@@ -22,6 +22,8 @@
           <li class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}">Panel</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Categorías</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('admin.orders.index') }}">Pedidos</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('usuarios.index') }}">Usuarios</a></li>
         </ul>
 
         <div class="d-flex align-items-center gap-2 stc-nav-actions">
