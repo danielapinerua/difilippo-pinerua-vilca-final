@@ -44,9 +44,12 @@ class CheckoutProcessRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'cart.required' => 'Tu carrito de compras está vacío.',
-            'cart.min' => 'Debes tener al menos un producto para proceder al pago.',
-            'cart.*.quantity.min' => 'La cantidad de los productos debe ser al menos 1.',
+            'cart.required' => 'El carrito está vacío.',
+            'cart.array' => 'Formato de carrito inválido.',
+            'cart.min' => 'El carrito está vacío.',
+            'cart.*.quantity.required' => 'La cantidad es obligatoria.',
+            'cart.*.quantity.integer' => 'La cantidad debe ser un número.',
+            'cart.*.quantity.min' => 'La cantidad mínima es 1.',
         ];
     }
 }

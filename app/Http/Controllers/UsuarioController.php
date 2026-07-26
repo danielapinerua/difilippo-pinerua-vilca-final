@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\StoreUsuarioRequest;
+use App\Http\Requests\UpdateUsuarioRequest;
 
 class UsuarioController extends Controller
 {
@@ -20,15 +22,9 @@ class UsuarioController extends Controller
         return view('usuarios.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreUsuarioRequest $request)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'email' => 'required|email|unique:usuarios',
-            'password' => 'required|min:6',
-        ]);
-        
-        $data = $request->all();
+        $data = $request->validated();
         $data['password'] = Hash::make($data['password']);
         Usuario::create($data);
 
@@ -40,14 +36,9 @@ class UsuarioController extends Controller
         return view('usuarios.edit', compact('usuario'));
     }
 
-    public function update(Request $request, Usuario $usuario)
+    public function update(UpdateUsuarioRequest $request, Usuario $usuario)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'email' => 'required|email|unique:usuarios,email,' . $usuario->id,
-        ]);
-
-        $usuario->update($request->all());
+        $usuario->update($request->validated());
 
         return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado');
     }

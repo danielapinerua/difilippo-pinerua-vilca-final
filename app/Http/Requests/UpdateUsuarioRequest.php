@@ -2,13 +2,10 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-/**
- * Responsabilidad: Validar los datos de entrada provenientes del formulario de Login.
- * Esta clase extrae la lógica de validación fuera del controlador, manteniéndolo "delgado".
- */
-class LoginRequest extends FormRequest
+class UpdateUsuarioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,23 +18,23 @@ class LoginRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email'],
-            'password' => ['required', 'string'],
+            'nombre' => 'required',
+            'email' => 'required|email|unique:usuarios,email,' . $this->route('usuario')->id,
         ];
     }
 
     public function messages(): array
     {
         return [
+            'nombre.required' => 'El nombre es obligatorio.',
             'email.required' => 'El email es obligatorio.',
             'email.email' => 'El formato del email es inválido.',
-            'password.required' => 'La contraseña es obligatoria.',
-            'password.string' => 'La contraseña debe ser texto.',
+            'email.unique' => 'Este email ya está registrado.',
         ];
     }
 }

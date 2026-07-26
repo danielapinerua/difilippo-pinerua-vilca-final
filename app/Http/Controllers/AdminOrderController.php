@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Services\OrderService;
 use App\Enums\OrderStatus;
+use App\Http\Requests\UpdateOrderStatusRequest;
 
 class AdminOrderController extends Controller
 {
@@ -28,12 +29,8 @@ class AdminOrderController extends Controller
         return view('admin.orders.show', compact('order'));
     }
 
-    public function update(Request $request, Order $order)
+    public function update(UpdateOrderStatusRequest $request, Order $order)
     {
-        $request->validate([
-            'status' => 'required|string',
-        ]);
-
         try {
             $this->orderService->updateStatus($order, $request->status);
             return back()->with('success', 'Estado del pedido actualizado correctamente.');

@@ -26,4 +26,14 @@ class CategoryRequest extends FormRequest
             ],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'El nombre es obligatorio.',
+            'name.string' => 'El nombre debe ser texto.',
+            'name.max' => 'El nombre no puede exceder 255 caracteres.',
+            'name.unique' => 'Esta categoría ya existe.',
+        ];
+    }
 }

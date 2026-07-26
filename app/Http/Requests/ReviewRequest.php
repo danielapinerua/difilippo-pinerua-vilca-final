@@ -26,4 +26,17 @@ class ReviewRequest extends FormRequest
             'comment' => 'required|string|max:500',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'rating.required' => 'La calificación es obligatoria.',
+            'rating.integer' => 'La calificación debe ser un número entero.',
+            'rating.min' => 'La calificación mínima es 1.',
+            'rating.max' => 'La calificación máxima es 5.',
+            'comment.required' => 'El comentario es obligatorio.',
+            'comment.string' => 'El comentario debe ser texto.',
+            'comment.max' => 'El comentario no puede exceder 500 caracteres.',
+        ];
+    }
 }

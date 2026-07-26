@@ -7,4 +7,4 @@ use App\Http\Controllers\Api\OrderController;
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 
-Route::middleware('auth')->get('/orders', [OrderController::class, 'index']);
+Route::middleware('auth.basic')->get('/orders', [OrderController::class, 'index']);
