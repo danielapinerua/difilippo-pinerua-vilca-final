@@ -44,35 +44,83 @@
         <p><strong>Fecha de compra:</strong> {{ $order->created_at->format('d/m/Y H:i') }}</p>
         <p><strong>Total pagado:</strong> ${{ number_format($order->total, 2, ',', '.') }}</p>
       </div>
+      <div class="order-card">
+        <h3>Información de envío</h3>
+        @php
+            $address = $order->usuario->addresses->first();
+        @endphp
+        
+        <h4 class="order-address-title">Dirección de Envío</h4>
+        @if($address)
+            <p><strong>Dirección:</strong> {{ $address->address }}</p>
+            <p><strong>Ciudad:</strong> {{ $address->city }}, {{ $address->province }}</p>
+            <p><strong>Código Postal:</strong> {{ $address->postal_code }}</p>
+        @else
+            <p><em>El usuario no tiene una dirección registrada.</em></p>
+        @endif
+      </div>
 
       <!-- Sección 3: Gestión de Estado -->
       <div class="order-card">
         <h3>Gestión de Estado</h3>
-        @if(in_array($order->status->value, [\App\Enums\OrderStatus::ENTREGADO->value, \App\Enums\OrderStatus::CANCELADO->value]))
-            <div class="order-closed-msg">
-                Este pedido ya está cerrado ({{ ucfirst($order->status->value) }}) y no admite cambios.
-            </div>
-        @else
-            <form action="{{ route('admin.orders.update', $order->id) }}" method="POST" class="order-status-form">
-                @csrf
-                @method('PUT')
-                
-                <label for="status">Actualizar estado a:</label>
-                <div class="d-flex gap-2 mt-2">
-                    <select name="status" id="status" class="admin-form-input order-status-select">
-                        @if($order->status->value == \App\Enums\OrderStatus::PENDIENTE->value)
-                            <option value="{{ \App\Enums\OrderStatus::PAGADO->value }}">Pagado</option>
-                            <option value="{{ \App\Enums\OrderStatus::CANCELADO->value }}">Cancelado</option>
-                        @elseif($order->status->value == \App\Enums\OrderStatus::PAGADO->value)
-                            <option value="{{ \App\Enums\OrderStatus::ENVIADO->value }}">Enviado</option>
-                            <option value="{{ \App\Enums\OrderStatus::CANCELADO->value }}">Cancelado</option>
-                        @elseif($order->status->value == \App\Enums\OrderStatus::ENVIADO->value)
-                            <option value="{{ \App\Enums\OrderStatus::ENTREGADO->value }}">Entregado</option>
-                        @endif
-                    </select>
-                    <button type="submit" class="stc-btn stc-btn-primary">Actualizar</button>
+        @php
+            $states = ['pendiente', 'pagado', 'enviado', 'entregado'];
+            $currentStatus = strtolower($order->status->value);
+            $currentIndex = array_search($currentStatus, $states);
+            $isCancelled = $currentStatus === 'cancelado';
+        @endphp
+
+        <div class="timeline-container">
+            @foreach($states as $index => $state)
+                @php
+                    $isCompleted = !$isCancelled && $index <= $currentIndex;
+                    $isNext = !$isCancelled && $index === $currentIndex + 1;
+                    $isFuture = $isCancelled || $index > $currentIndex + 1;
+                    
+                    $nodeClass = '';
+                    if ($isCompleted) {
+                        $nodeClass = 'node-completed';
+                    } elseif ($isNext) {
+                        $nodeClass = 'node-next';
+                    } else {
+                        $nodeClass = 'node-future';
+                    }
+                @endphp
+
+                <div class="timeline-item">
+                    @if($isNext)
+                        <form action="{{ route('admin.orders.update', $order->id) }}" method="POST" class="timeline-form">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="status" value="{{ $state }}">
+                            <button type="submit" class="timeline-node {{ $nodeClass }}" title="Marcar como {{ ucfirst($state) }}"></button>
+                        </form>
+                    @else
+                        <div class="timeline-node {{ $nodeClass }}">
+                            @if($isCompleted)
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            @endif
+                        </div>
+                    @endif
+                    <div class="timeline-content">
+                        <span class="timeline-label {{ $isCompleted ? 'label-completed' : ($isNext ? 'label-next' : 'label-future') }}">
+                            {{ ucfirst($state) }}
+                        </span>
+                    </div>
                 </div>
-            </form>
+            @endforeach
+        </div>
+
+        @if(!$isCancelled && $currentStatus !== 'entregado')
+            <div class="cancel-order-wrapper">
+                <a href="{{ route('admin.orders.cancel', $order->id) }}" class="stc-btn stc-btn-ghost btn-cancel-order text-center block-link">Cancelar Pedido</a>
+            </div>
+        @endif
+        
+        @if($isCancelled)
+            <div class="order-closed-msg">
+                Este pedido ha sido Cancelado y no admite cambios.
+            </div>
         @endif
       </div>
     </div>

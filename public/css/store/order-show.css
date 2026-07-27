@@ -268,3 +268,102 @@
         margin-top: 0.5rem;
     }
 }
+
+/* TIMELINE STORE (Visual only) */
+.os-timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.os-timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: #e0e0e0;
+}
+.os-timeline-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 24px;
+}
+.os-timeline-node {
+    position: absolute;
+    left: -14px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+.os-node-completed {
+    background-color: var(--kombu, #4A5344);
+    border: 2px solid var(--kombu, #4A5344);
+}
+.os-node-active {
+    background-color: #fff;
+    border: 3px solid var(--kombu, #4A5344);
+}
+.os-node-future {
+    background-color: #f5f5f5;
+    border: 2px solid #e0e0e0;
+}
+.os-node-cancelled {
+    background-color: #dc3545;
+    border: 2px solid #dc3545;
+}
+.os-timeline-content {
+    margin-left: 15px;
+}
+.os-timeline-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+.os-label-completed {
+    color: var(--kombu, #4A5344);
+}
+.os-label-active {
+    color: var(--cafe-noir, #34261C);
+    font-weight: 700;
+}
+.os-label-future {
+    color: #999;
+}
+.os-label-cancelled {
+    color: #dc3545;
+    font-weight: 600;
+}
+.os-timeline-cancelled::before {
+    display: none;
+}
+.os-node-current {
+    box-shadow: 0 0 0 4px rgba(74, 83, 68, 0.2);
+    animation: pulse-node 2s infinite;
+}
+.os-label-current {
+    font-weight: 700 !important;
+    color: var(--cafe-noir, #34261C) !important;
+}
+
+@keyframes pulse-node {
+    0% {
+        box-shadow: 0 0 0 0 rgba(74, 83, 68, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(74, 83, 68, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(74, 83, 68, 0);
+    }
+}

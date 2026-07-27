@@ -99,5 +99,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/orders', [App\Http\Controllers\AdminOrderController::class, 'index'])->name('admin.orders.index');
     Route::get('/orders/{order}', [App\Http\Controllers\AdminOrderController::class, 'show'])->name('admin.orders.show');
     Route::put('/orders/{order}/status', [App\Http\Controllers\AdminOrderController::class, 'update'])->name('admin.orders.update');
+    Route::get('/orders/{order}/cancel', [App\Http\Controllers\AdminOrderController::class, 'cancel'])->name('admin.orders.cancel');
 
 });

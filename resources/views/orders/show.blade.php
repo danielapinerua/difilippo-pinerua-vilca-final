@@ -58,6 +58,56 @@
                     </span>
                 </div>
 
+                @php
+                    $states = ['pendiente', 'pagado', 'enviado', 'entregado'];
+                    $currentStatus = strtolower($order->status->value);
+                    $currentIndex = array_search($currentStatus, $states);
+                    $isCancelled = $currentStatus === 'cancelado';
+                @endphp
+
+                <div class="os-timeline-container {{ $isCancelled ? 'os-timeline-cancelled' : '' }}">
+                    @if($isCancelled)
+                        <div class="os-timeline-item">
+                            <div class="os-timeline-node os-node-cancelled">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </div>
+                            <div class="os-timeline-content">
+                                <span class="os-timeline-label os-label-cancelled">
+                                    Pedido Cancelado
+                                </span>
+                            </div>
+                        </div>
+                    @else
+                        @foreach($states as $index => $state)
+                            @php
+                                $isCompleted = $index <= $currentIndex;
+                                $isActive = $index === $currentIndex;
+                                
+                                if ($isCompleted) {
+                                    $nodeClass = 'os-node-completed' . ($isActive ? ' os-node-current' : '');
+                                    $labelClass = 'os-label-completed' . ($isActive ? ' os-label-current' : '');
+                                } else {
+                                    $nodeClass = 'os-node-future';
+                                    $labelClass = 'os-label-future';
+                                }
+                            @endphp
+
+                            <div class="os-timeline-item">
+                                <div class="os-timeline-node {{ $nodeClass }}">
+                                    @if($isCompleted)
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    @endif
+                                </div>
+                                <div class="os-timeline-content">
+                                    <span class="os-timeline-label {{ $labelClass }}">
+                                        {{ ucfirst($state) }}
+                                    </span>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+
                 <div class="os-ticket-divider"></div>
 
                 <div class="os-ticket-row os-ticket-total">

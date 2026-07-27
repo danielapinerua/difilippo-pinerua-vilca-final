@@ -25,7 +25,7 @@ class AdminOrderController extends Controller
 
     public function show(Order $order)
     {
-        $order->load(['usuario', 'items.product']);
+        $order->load(['usuario.addresses', 'items.product']);
         return view('admin.orders.show', compact('order'));
     }
 
@@ -33,9 +33,18 @@ class AdminOrderController extends Controller
     {
         try {
             $this->orderService->updateStatus($order, $request->status);
-            return back()->with('success', 'Estado del pedido actualizado correctamente.');
+            
+            $message = strtolower($request->status) === 'cancelado' 
+                ? 'El pedido ha sido cancelado con éxito.' 
+                : 'Estado del pedido actualizado correctamente.';
+
+            return redirect()->route('admin.orders.show', $order->id)->with('success', $message);
         } catch (\InvalidArgumentException $e) {
-            return back()->with('error', $e->getMessage());
+            return redirect()->route('admin.orders.show', $order->id)->with('error', $e->getMessage());
         }
+    }
+    public function cancel(Order $order)
+    {
+        return view('admin.orders.cancel', compact('order'));
     }
 }

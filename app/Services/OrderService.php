@@ -49,7 +49,7 @@ class OrderService
         $isValid = match ($currentStatus) {
             OrderStatus::PENDIENTE->value => in_array($newStatus, [OrderStatus::PAGADO->value, OrderStatus::CANCELADO->value]),
             OrderStatus::PAGADO->value => in_array($newStatus, [OrderStatus::ENVIADO->value, OrderStatus::CANCELADO->value]),
-            OrderStatus::ENVIADO->value => $newStatus === OrderStatus::ENTREGADO->value,
+            OrderStatus::ENVIADO->value => in_array($newStatus, [OrderStatus::ENTREGADO->value, OrderStatus::CANCELADO->value]),
             OrderStatus::ENTREGADO->value, OrderStatus::CANCELADO->value => false,
             default => false,
         };
