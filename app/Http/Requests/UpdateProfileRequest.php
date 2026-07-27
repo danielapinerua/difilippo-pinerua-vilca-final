@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class UpdateProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,25 +15,11 @@ class RegisterRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
             'nombre' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:usuarios,email',
-            'password' => [
-                'required',
-                'string',
-                'min:8',
-                'confirmed',
-                'regex:/[A-Z]/',
-                'regex:/[0-9]/',
-                'regex:/[\W_]/'
-            ],
+            'email' => 'required|string|email|max:255|unique:usuarios,email,' . \Illuminate\Support\Facades\Auth::id(),
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'province' => 'required|string|max:255',
@@ -40,9 +27,6 @@ class RegisterRequest extends FormRequest
         ];
     }
 
-    /**
-     * Get the error messages for the defined validation rules.
-     */
     public function messages(): array
     {
         return [
@@ -54,11 +38,6 @@ class RegisterRequest extends FormRequest
             'email.email' => 'El formato del email es inválido.',
             'email.max' => 'El email no puede exceder 255 caracteres.',
             'email.unique' => 'Este email ya está registrado.',
-            'password.required' => 'La contraseña es obligatoria.',
-            'password.string' => 'La contraseña debe ser texto.',
-            'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
-            'password.confirmed' => 'Las contraseñas no coinciden.',
-            'password.regex' => 'La contraseña debe incluir al menos una mayúscula, un número y un símbolo.',
             'address.required' => 'La dirección es obligatoria.',
             'address.string' => 'La dirección debe ser texto.',
             'address.max' => 'La dirección no puede exceder 255 caracteres.',

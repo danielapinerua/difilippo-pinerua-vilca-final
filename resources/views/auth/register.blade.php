@@ -16,7 +16,7 @@
                 @csrf
 
                 <div class="mb-3">
-                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" value="{{ old('name') }}" required>
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" value="{{ old('nombre') }}" required>
                 </div>
                 @error('nombre')
                     <p class="error-msg">{{ $message }}</p>
@@ -26,6 +26,34 @@
                     <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
                 </div>
                 @error('email')
+                    <p class="error-msg">{{ $message }}</p>
+                @enderror
+
+                <div class="mb-3">
+                    <input type="text" name="address" class="form-control" placeholder="Dirección" value="{{ old('address') }}" required>
+                </div>
+                @error('address')
+                    <p class="error-msg">{{ $message }}</p>
+                @enderror
+
+                <div class="mb-3">
+                    <input type="text" name="city" class="form-control" placeholder="Ciudad" value="{{ old('city') }}" required>
+                </div>
+                @error('city')
+                    <p class="error-msg">{{ $message }}</p>
+                @enderror
+
+                <div class="mb-3">
+                    <input type="text" name="province" class="form-control" placeholder="Provincia" value="{{ old('province') }}" required>
+                </div>
+                @error('province')
+                    <p class="error-msg">{{ $message }}</p>
+                @enderror
+
+                <div class="mb-3">
+                    <input type="text" name="postal_code" class="form-control" placeholder="Código Postal" value="{{ old('postal_code') }}" required>
+                </div>
+                @error('postal_code')
                     <p class="error-msg">{{ $message }}</p>
                 @enderror
 

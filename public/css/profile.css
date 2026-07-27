@@ -118,3 +118,9 @@
     transform: scale(1.1);
     color: #4A5344; /* kombu */
 }
+.profile-actions-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}

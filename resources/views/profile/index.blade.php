@@ -28,6 +28,11 @@
                     <span class="profile-data-label">Email</span>
                     <span class="profile-data-value">{{ $user->email }}</span>
                 </div>
+
+                <div class="profile-actions-buttons">
+                    <a href="{{ route('profile.edit') }}" class="stc-btn stc-btn-ghost">Editar mis datos</a>
+                    <a href="{{ route('profile.password') }}" class="stc-btn stc-btn-ghost">Cambiar contraseña</a>
+                </div>
             </div>
         </section>
 
