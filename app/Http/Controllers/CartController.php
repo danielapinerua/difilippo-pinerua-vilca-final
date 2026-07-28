@@ -10,12 +10,10 @@ class CartController extends Controller
 {
     protected $cartService;
 
-
     public function __construct(CartService $cartService)
     {
         $this->cartService = $cartService;
     }
-
 
 
     public function index()
@@ -29,31 +27,21 @@ class CartController extends Controller
     }
 
 
-
-
     public function add(Request $request, Product $product)
     {
-
         $quantity = (int) $request->input('quantity', 1);
-
 
         // Evita cantidades inválidas
         if ($quantity < 1) {
             $quantity = 1;
         }
 
-
         // Evita superar stock disponible
         if ($quantity > $product->stock) {
             $quantity = $product->stock;
         }
 
-
-
         $this->cartService->add($product, $quantity);
-
-
-
 
         // Botón "Comprar ahora"
         if ($request->boolean('buy_now')) {
@@ -63,18 +51,11 @@ class CartController extends Controller
 
         }
 
-
-
-
         // Botón "Agregar al carrito"
         return back()
             ->with('success', 'Producto agregado al carrito');
 
     }
-
-
-
-
 
 
     public function increment(Product $product)
@@ -93,7 +74,6 @@ class CartController extends Controller
 
         $this->cartService->decrement($product);
 
-
         return back()
             ->with('success', 'Cantidad disminuida');
 
@@ -104,7 +84,6 @@ class CartController extends Controller
     {
 
         $this->cartService->remove($product);
-
 
         return back()
             ->with('success', 'Producto eliminado del carrito');
