@@ -10,46 +10,104 @@ class CartController extends Controller
 {
     protected $cartService;
 
+
     public function __construct(CartService $cartService)
     {
         $this->cartService = $cartService;
     }
 
+
+
     public function index()
     {
         $cartData = $this->cartService->getCart();
+
         return view('store.cart', [
             'cartItems' => $cartData['items'],
             'cartTotal' => $cartData['total']
         ]);
     }
 
+
+
+
     public function add(Request $request, Product $product)
     {
+
         $quantity = (int) $request->input('quantity', 1);
+
+
+        // Evita cantidades inválidas
         if ($quantity < 1) {
             $quantity = 1;
         }
 
+
+        // Evita superar stock disponible
+        if ($quantity > $product->stock) {
+            $quantity = $product->stock;
+        }
+
+
+
         $this->cartService->add($product, $quantity);
-        return back()->with('success', 'Producto agregado al carrito');
+
+
+
+
+        // Botón "Comprar ahora"
+        if ($request->boolean('buy_now')) {
+
+            return redirect()
+                ->route('cart.index');
+
+        }
+
+
+
+
+        // Botón "Agregar al carrito"
+        return back()
+            ->with('success', 'Producto agregado al carrito');
+
     }
+
+
+
+
+
 
     public function increment(Product $product)
     {
+
         $this->cartService->increment($product);
-        return back()->with('success', 'Cantidad aumentada');
+
+
+        return back()
+            ->with('success', 'Cantidad aumentada');
+
     }
 
     public function decrement(Product $product)
     {
+
         $this->cartService->decrement($product);
-        return back()->with('success', 'Cantidad disminuida');
+
+
+        return back()
+            ->with('success', 'Cantidad disminuida');
+
     }
+
 
     public function remove(Product $product)
     {
+
         $this->cartService->remove($product);
-        return back()->with('success', 'Producto eliminado del carrito');
+
+
+        return back()
+            ->with('success', 'Producto eliminado del carrito');
+
     }
 }
