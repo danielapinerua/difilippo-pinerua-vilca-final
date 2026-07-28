@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/dashboard_admin/index.css') }}">
 @endpush
 
-@section('title', 'Panel de administración — Sin TACC Market')
+@section('title', 'Panel de administración — Vivra')
 
 @section('content')
 

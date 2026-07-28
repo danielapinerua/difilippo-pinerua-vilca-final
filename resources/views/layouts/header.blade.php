@@ -5,9 +5,8 @@
   @endphp
   <div class="container-fluid px-3 px-lg-5">
 
-    <a class="navbar-brand stc-nav-logo" href="{{ Auth::check() && Auth::user()->es_admin ? route('admin.dashboard') : route('home') }}">
-      <span class="stc-nav-logo-mark">ST</span>
-      Sin TACC Market
+    <a class="navbar-brand stc-nav-logo stc-logo-link" href="{{ Auth::check() && Auth::user()->es_admin ? route('admin.dashboard') : route('home') }}">
+      <img src="{{ asset('storage/logos/android-chrome-512x512.png') }}" alt="Logo Vivra" class="stc-logo-img">
     </a>
 
     <button class="navbar-toggler stc-nav-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#stcNavMenu" aria-controls="stcNavMenu" aria-expanded="false" aria-label="Abrir menú">

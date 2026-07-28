@@ -3,9 +3,11 @@
   @if (request()->routeIs('home'))
     <div class="stc-footer-top">
       <div class="stc-footer-brand">
-        <span class="stc-nav-logo-mark">ST</span>
+        <a href="{{ route('home') }}" class="stc-logo-link">
+          <img src="{{ asset('storage/logos/android-chrome-512x512.png') }}" alt="Logo Vivra" class="stc-logo-img">
+        </a>
         <div>
-          <p class="stc-footer-brand-name">Sin TACC Market</p>
+          <p class="stc-footer-brand-name">Vivra</p>
           <p class="stc-footer-brand-tag">Comida real, sin gluten, sin vueltas.</p>
         </div>
       </div>
@@ -27,7 +29,7 @@
   @endif
 
   <div class="stc-footer-bottom">
-    <p>© {{ date('Y') }} Sin TACC Market. Todos los derechos reservados.</p>
+    <p>© {{ date('Y') }} Vivra. Todos los derechos reservados.</p>
   </div>
 
 </footer>

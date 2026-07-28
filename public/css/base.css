@@ -113,4 +113,13 @@ body { margin: 0; padding: 0; }
 .stc-custom-modal .modal-footer {
   border-top: none !important;
   padding-bottom: 2rem !important;
+}.stc-logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+.stc-logo-img {
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
 }

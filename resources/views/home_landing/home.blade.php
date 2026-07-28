@@ -1,6 +1,6 @@
 @extends('welcome')
 
-@section('title', 'Sin TACC Market — Comida real, sin gluten')
+@section('title', 'Vivra — Comida real, sin gluten')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/home_landing/home.css') }}">

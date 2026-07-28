@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/pages/about.css') }}">
 @endpush
 
-@section('title', 'Sobre Nosotros — Sin TACC Market')
+@section('title', 'Sobre Nosotros — Vivra')
 
 @section('content')
 
