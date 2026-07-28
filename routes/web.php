@@ -22,6 +22,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::view('/about', 'pages.about')->name('about');
+Route::view('/envios', 'pages.envios')->name('envios');
 
 // RUTA DEL CATÁLOGO PÚBLICO
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');

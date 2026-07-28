@@ -42,7 +42,7 @@
           <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Inicio</a></li>
           <a class="nav-link" href="{{ route('catalog') }}">Productos</a>
           <li class="nav-item"><a class="nav-link" href="{{ route('about') }}#about">Sobre Nosotros</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Envíos</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{ route('envios') }}">Envíos</a> </li>
         </ul>
 
           <div class="d-flex align-items-center gap-2 stc-nav-actions">
