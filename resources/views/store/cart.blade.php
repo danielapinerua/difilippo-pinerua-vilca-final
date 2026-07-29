@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('layouts.layout')
 
 @section('title', 'Mi Carrito')
 

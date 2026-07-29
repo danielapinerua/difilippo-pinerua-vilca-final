@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('layouts.layout')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/dashboard_admin/index.css') }}">
