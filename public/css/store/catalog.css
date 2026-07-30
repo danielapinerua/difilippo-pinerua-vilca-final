@@ -140,6 +140,71 @@
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(52, 38, 28, 0.05);
   transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+
+  /* Animación de entrada */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cat-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cat-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggering (Escalonamiento) puramente en CSS para evitar inline styles */
+.product-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.product-card:nth-child(2) {
+  animation-delay: 0.10s;
+}
+
+.product-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.product-card:nth-child(4) {
+  animation-delay: 0.20s;
+}
+
+.product-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.product-card:nth-child(6) {
+  animation-delay: 0.30s;
+}
+
+.product-card:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+.product-card:nth-child(8) {
+  animation-delay: 0.40s;
+}
+
+.product-card:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+.product-card:nth-child(10) {
+  animation-delay: 0.50s;
+}
+
+.product-card:nth-child(11) {
+  animation-delay: 0.55s;
+}
+
+.product-card:nth-child(12) {
+  animation-delay: 0.60s;
+}
+
+.product-card:nth-child(n+13) {
+  animation-delay: 0.65s;
 }
 
 .product-card:hover {
@@ -255,7 +320,7 @@
 .product-add-btn {
   flex-grow: 1;
   background: var(--cat-accent);
-  color: #fff;
+  color: #fff !important;
   border: none;
   border-radius: 8px;
   padding: 0.5rem 0.6rem;
@@ -318,11 +383,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .product-card,
   .product-image img {
-    transition: none;
+    /* transition: none; */
   }
 }
+
 /* PAGINATION STYLES */
 .catalog-pagination {
   margin-top: 3rem;
@@ -360,7 +427,8 @@
 }
 
 .catalog-pagination .page-item:not(.active) .page-link:hover {
-  background-color: rgba(139, 122, 107, 0.15); /* var(--cat-ink-soft) con opacidad */
+  background-color: rgba(139, 122, 107, 0.15);
+  /* var(--cat-ink-soft) con opacidad */
   color: var(--cat-ink);
 }
 
@@ -372,7 +440,6 @@
 
 
 .product-card-categories {
-    font-size: 12px;
-    color: gray;
+  font-size: 12px;
+  color: gray;
 }
-

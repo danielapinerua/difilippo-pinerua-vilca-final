@@ -23,13 +23,21 @@ class CheckoutController extends Controller
         $cart = $validated['cart'];
 
         try {
-            $this->checkoutService->processCheckout(Auth::user(), $cart);
+            $order = $this->checkoutService->processCheckout(Auth::user(), $cart);
             
-            // Redirigir a los pedidos del usuario o inicio con éxito
-            return redirect()->route('home')->with('success', 'Orden generada con éxito');
+            return redirect()->route('checkout.success', $order->id);
             
         } catch (\Exception $e) {
             return back()->with('error', 'Hubo un error al procesar tu orden. Inténtalo de nuevo más tarde.');
         }
+    }
+
+    public function success(\App\Models\Order $order)
+    {
+        if (Auth::id() !== $order->usuario_id) {
+            abort(403, 'No tienes permiso para ver este pedido.');
+        }
+
+        return view('store.checkout-success', compact('order'));
     }
 }

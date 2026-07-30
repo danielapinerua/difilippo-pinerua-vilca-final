@@ -41,6 +41,7 @@ use App\Http\Controllers\CheckoutController;
 
 Route::middleware('auth')->group(function () {
     Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
+    Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])->name('checkout.success');
 });
 
 Route::middleware('auth')->group(function () {
