@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('layouts.layout')
 
 @section('title', 'Detalle del Pedido #' . str_pad($order->id, 5, '0', STR_PAD_LEFT))
 
