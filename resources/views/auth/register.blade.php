@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/logos/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('storage/logos/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('storage/logos/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('storage/logos/site.webmanifest') }}">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - E-commerce</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+@extends('layouts.layout')
+
+@push('styles')
     <link rel="stylesheet" href="{{ asset('css/login/login.css') }}">
-</head>
-<body>
+@endpush
+
+@section('title', 'Registro')
+
+@section('content')
     <div class="d-flex align-items-center justify-content-center min-vh-100 login-bg px-3">
         <div class="login-container col-12 col-sm-8 col-md-6 col-lg-4">
             <h2 class="text-center mb-4">Registro</h2>
@@ -80,7 +75,5 @@
             </form>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    
+@endsection
