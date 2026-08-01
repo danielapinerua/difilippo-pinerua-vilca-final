@@ -18,8 +18,12 @@
         <!-- 🔹 FILTROS -->
         <aside class="col-12 col-lg-2">
 
+            <button type="button" class="filters-toggle-btn d-lg-none" id="filtersToggle">
+                Filtros <span class="filters-toggle-icon">▾</span>
+            </button>
+
             <form method="GET" action="{{ route('catalog') }}">
-                <div class="filters-card">
+                <div class="filters-card" id="filtersCard">
                     <h3>Filtros</h3>
                     
                     <!-- 🟣 CATEGORÍAS DINÁMICAS -->
@@ -69,7 +73,6 @@
                         Limpiar
                     </a>
 
-                    <p class="filters-note">Próximamente</p>
                 </div>
             </form>
 
@@ -181,4 +184,14 @@
 
     </div>
 </div>
+
+@push('scripts')
+<script>
+document.getElementById('filtersToggle')?.addEventListener('click', function () {
+    document.getElementById('filtersCard').classList.toggle('is-open');
+    this.classList.toggle('is-active');
+});
+</script>
+@endpush
+
 @endsection

@@ -18,9 +18,6 @@
   box-sizing: border-box;
 }
 
-/* Ocupa el espacio disponible entre el header y el footer del layout,
-   sin forzar 100vh completo (que generaría scroll) ni una altura fija
-   corta (que deja un hueco feo antes del footer). */
 .register-row {
   min-height: calc(100vh - 138px);
 }
@@ -146,27 +143,6 @@
   max-width: 560px;
 }
 
-.register-form-wrap-narrow {
-  max-width: 400px;
-}
-
-.register-form-footnote {
-  margin-top: 1.5rem;
-  text-align: center;
-  font-size: 0.88rem;
-  color: var(--reg-ink-soft);
-}
-
-.register-form-footnote a {
-  color: var(--reg-moss);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.register-form-footnote a:hover {
-  text-decoration: underline;
-}
-
 .register-form-header {
   margin-bottom: 2rem;
 }
@@ -276,7 +252,6 @@
    RESPONSIVE (Bootstrap breakpoints)
    ========================================= */
 
-/* < lg (991.98px): ocultar panel de marca para que el form entre sin scroll */
 @media (max-width: 991.98px) {
   .register-brand-panel {
     display: none;
@@ -290,7 +265,6 @@
 
 /* < sm (575.98px) */
 @media (max-width: 575.98px) {
-  .register-brand-panel,
   .register-form-panel {
     padding-left: 1.25rem;
     padding-right: 1.25rem;

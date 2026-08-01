@@ -214,12 +214,76 @@
         align-items: flex-start;
     }
 
+    /* Tabla -> tarjetas apiladas, sin scroll horizontal */
     .page-admin-categories .admin-table-wrap {
-        overflow-x: auto;
+        background: transparent;
+        border: none;
+        overflow: visible;
     }
 
-    .page-admin-categories .admin-table {
-        min-width: 480px;
+    .page-admin-categories .admin-table,
+    .page-admin-categories .admin-table thead,
+    .page-admin-categories .admin-table tbody,
+    .page-admin-categories .admin-table tr,
+    .page-admin-categories .admin-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .page-admin-categories .admin-table thead {
+        display: none;
+    }
+
+    .page-admin-categories .admin-table tr {
+        background: var(--bone);
+        border: 1px solid rgba(46, 44, 40, 0.2);
+        border-radius: 6px;
+        margin-bottom: 16px;
+        padding: 8px 16px;
+    }
+
+    .page-admin-categories .admin-table tbody tr:last-child {
+        margin-bottom: 0;
+    }
+
+    .page-admin-categories .admin-table td {
+        border-bottom: 1px dashed rgba(46, 44, 40, 0.12);
+        padding: 12px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        text-align: right;
+    }
+
+    .page-admin-categories .admin-table td:last-child {
+        border-bottom: none;
+    }
+
+    .page-admin-categories .admin-table td::before {
+        content: attr(data-label);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: .72rem;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        color: var(--moss);
+        font-weight: 600;
+        text-align: left;
+        flex-shrink: 0;
+    }
+
+    .page-admin-categories .admin-table-actions {
+        justify-content: flex-end;
+    }
+
+    /* Estado vacío: no debe comportarse como celda de tarjeta */
+    .page-admin-categories .admin-table td.admin-table-empty {
+        display: block;
+        text-align: center;
+    }
+
+    .page-admin-categories .admin-table td.admin-table-empty::before {
+        content: none;
     }
 }
 /* Classes abstracted from inline styles */

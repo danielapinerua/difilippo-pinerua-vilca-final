@@ -25,6 +25,9 @@
 
 .catalog-header {
   margin-bottom: 2.25rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .catalog-header h1 {
@@ -43,6 +46,40 @@
   height: 3px;
   border-radius: 2px;
   background: var(--cat-gold);
+  margin: 0 auto;
+}
+
+
+/* 🔹 BOTÓN TOGGLE DE FILTROS (solo mobile/tablet) */
+.filters-toggle-btn {
+  width: 100%;
+  background: var(--cat-surface);
+  border: 1px solid var(--cat-line);
+  border-radius: 12px;
+  padding: 0.8rem 1.1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cat-ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.filters-toggle-btn:hover {
+  border-color: #C9B588;
+}
+
+.filters-toggle-icon {
+  transition: transform 0.2s ease;
+  color: var(--cat-ink-soft);
+}
+
+.filters-toggle-btn.is-active .filters-toggle-icon {
+  transform: rotate(180deg);
 }
 
 
@@ -51,13 +88,24 @@
   border: 1px solid var(--cat-line);
   border-radius: 16px;
   padding: 1.4rem 1.3rem;
-  position: sticky;
-  top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+/* En mobile/tablet arranca oculto, se abre con la clase is-open */
+@media (max-width: 991.98px) {
+  .filters-card {
+    display: none;
+  }
+
+  .filters-card.is-open {
+    display: block;
+  }
 }
 
 @media (min-width: 992px) {
   .filters-card {
+    position: sticky;
+    top: 1.5rem;
     margin-right: 2rem;
     margin-bottom: 0;
   }
@@ -292,6 +340,7 @@
   gap: 0.5rem;
   margin-top: auto;
   padding-top: 0.6rem;
+  flex-wrap: wrap;
 }
 
 .product-qty-select {
@@ -365,12 +414,28 @@
 
 @media (max-width: 767.98px) {
   .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 0.9rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 
   .product-info {
     padding: 0.8rem 0.9rem 1rem;
+  }
+
+  .product-name {
+    font-size: 0.9rem;
+  }
+
+  .product-price {
+    font-size: 0.95rem;
+  }
+
+  .product-qty-select {
+    width: 100%;
+  }
+
+  .product-add-btn {
+    width: 100%;
   }
 }
 
@@ -379,6 +444,26 @@
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 2rem;
+  }
+}
+
+/* Botones del formulario de filtros: mismo ancho, uno debajo del otro */
+.filters-card .product-add-btn {
+  display: block;
+  width: 100%;
+}
+
+.filters-card button.product-add-btn {
+  margin-bottom: 0.6rem;
+}
+
+.filters-card a.product-add-btn {
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  .product-grid {
+    grid-template-columns: 1fr;
   }
 }
 

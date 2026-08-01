@@ -47,19 +47,19 @@
         <tbody>
           @forelse($orders as $order)
             <tr>
-              <td>#{{ str_pad($order->id, 5, '0', STR_PAD_LEFT) }}</td>
-              <td>
+              <td data-label="ID Pedido">#{{ str_pad($order->id, 5, '0', STR_PAD_LEFT) }}</td>
+              <td data-label="Cliente">
                 {{ $order->usuario->nombre }}<br>
                 <small class="admin-order-email">{{ $order->usuario->email }}</small>
               </td>
-              <td>{{ $order->created_at->format('d/m/Y H:i') }}</td>
-              <td>${{ number_format($order->total, 2, ',', '.') }}</td>
-              <td>
+              <td data-label="Fecha">{{ $order->created_at->format('d/m/Y H:i') }}</td>
+              <td data-label="Total">${{ number_format($order->total, 2, ',', '.') }}</td>
+              <td data-label="Estado">
                 <span class="order-status-tag status-{{ strtolower($order->status->value) }}">
                   {{ ucfirst($order->status->value) }}
                 </span>
               </td>
-              <td>
+              <td data-label="Acciones">
                 <div class="admin-table-actions">
                   <a href="{{ route('admin.orders.show', $order->id) }}" class="stc-btn stc-btn-ghost">Ver / Gestionar</a>
                 </div>
@@ -73,7 +73,7 @@
         </tbody>
       </table>
     </div>
-    
+
     <div class="admin-pagination-wrapper">
       {{ $orders->links() }}
     </div>
