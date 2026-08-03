@@ -6,7 +6,6 @@ use App\Http\Requests\RegisterRequest;
 use App\Services\AuthService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -45,11 +44,7 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request): RedirectResponse
     {
-        Log::info('llego aca');
-
         $user = $this->authService->registerUser($request->validated());
-
-        Log::info('Usuario registrado:', ['user' => $user]);
 
         Auth::login($user);
 
