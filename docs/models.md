@@ -4,79 +4,95 @@ Cada tabla posee un modelo Laravel asociado, encargado de representar la entidad
 
 Los modelos implementan: 
 
-● Relaciones Eloquent. 
-● Validación de asignación masiva mediante `$fillable`.
-● Conversión automática de tipos mediante casts. 
-● Métodos auxiliares para lógica específica. 
+- Relaciones Eloquent. 
+- Validación de asignación masiva mediante `$fillable`.
+- Conversión automática de tipos mediante casts. 
+- Métodos auxiliares para lógica específica. 
 
 ---
 
-### Usuario 
+### 👤 Usuario 
 
-**Relaciones:** `hasMany(Order::class)`, `hasMany(Review::class)`, `hasMany(Address::class)`, `belongsToMany(Product::class)` (vía wishlist)
+**Relaciones:** 
+- `hasMany(Order::class)`
+- `hasMany(Review::class)`
+- `hasMany(Address::class)`
+- `belongsToMany(Product::class)` *(vía wishlist)*
 
-Un usuario puede tener: 
-● Muchos pedidos. 
-● Muchas reseñas. 
-● Muchas direcciones. 
-● Muchos productos favoritos. 
-
----
-
-### Product
-
-**Relaciones:** `belongsToMany(Category::class)`, `hasMany(OrderItem::class)`, `hasMany(Review::class)`, `belongsToMany(Usuario::class)` (vía wishlists)
-
-Un producto puede tener:
-● Muchas categorías asignadas.
-● Muchas apariciones en detalles de pedidos (OrderItems).
-● Muchas reseñas de clientes.
-● Muchos usuarios que lo han marcado como favorito.
+**Un usuario puede tener:** 
+- Muchos pedidos. 
+- Muchas reseñas. 
+- Muchas direcciones. 
+- Muchos productos favoritos. 
 
 ---
 
-### Category
+### 🛍️ Product
 
-**Relaciones:** `belongsToMany(Product::class)`
+**Relaciones:** 
+- `belongsToMany(Category::class)`
+- `hasMany(OrderItem::class)`
+- `hasMany(Review::class)`
+- `belongsToMany(Usuario::class)` *(vía wishlists)*
 
-Una categoría puede tener:
-● Muchos productos asociados en el catálogo.
-
----
-
-### Order
-
-**Relaciones:** `belongsTo(Usuario::class)`, `hasMany(OrderItem::class)`
-
-Un pedido puede tener:
-● Un único usuario comprador (dueño del pedido).
-● Muchos ítems que componen el detalle de la compra.
+**Un producto puede tener:**
+- Muchas categorías asignadas.
+- Muchas apariciones en detalles de pedidos (OrderItems).
+- Muchas reseñas de clientes.
+- Muchos usuarios que lo han marcado como favorito.
 
 ---
 
-### OrderItem
+### 🏷️ Category
 
-**Relaciones:** `belongsTo(Order::class)`, `belongsTo(Product::class)`
+**Relaciones:** 
+- `belongsToMany(Product::class)`
 
-Un detalle de pedido (ítem) puede tener:
-● Una única orden a la que pertenece.
-● Un único producto asociado.
-
----
-
-### Review
-
-**Relaciones:** `belongsTo(Usuario::class)`, `belongsTo(Product::class)`
-
-Una reseña puede tener:
-● Un único usuario que la escribió.
-● Un único producto al que está calificando.
+**Una categoría puede tener:**
+- Muchos productos asociados en el catálogo.
 
 ---
 
-### Address
+### 🛒 Order
 
-**Relaciones:** `belongsTo(Usuario::class)`
+**Relaciones:** 
+- `belongsTo(Usuario::class)`
+- `hasMany(OrderItem::class)`
 
-Una dirección física puede tener:
-● Un único usuario al que le pertenece (dueño de la libreta de direcciones).
+**Un pedido puede tener:**
+- Un único usuario comprador (dueño del pedido).
+- Muchos ítems que componen el detalle de la compra.
+
+---
+
+### 📝 OrderItem
+
+**Relaciones:** 
+- `belongsTo(Order::class)`
+- `belongsTo(Product::class)`
+
+**Un detalle de pedido (ítem) puede tener:**
+- Una única orden a la que pertenece.
+- Un único producto asociado.
+
+---
+
+### ⭐ Review
+
+**Relaciones:** 
+- `belongsTo(Usuario::class)`
+- `belongsTo(Product::class)`
+
+**Una reseña puede tener:**
+- Un único usuario que la escribió.
+- Un único producto al que está calificando.
+
+---
+
+### 📍 Address
+
+**Relaciones:** 
+- `belongsTo(Usuario::class)`
+
+**Una dirección física puede tener:**
+- Un único usuario al que le pertenece (dueño de la libreta de direcciones).
