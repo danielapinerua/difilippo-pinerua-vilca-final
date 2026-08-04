@@ -44,3 +44,10 @@
 - **CU07:** Dejar reseñas en productos
 - **CU08:** Gestionar estado de pedidos (Administrador)
 - **CU09:** Gestionar lista de deseos (Wishlist) 
+
+## 📌 Alcance y Supuestos
+
+- No se implementará pasarela de pago real.
+- No se gestionarán envíos reales.
+- El sistema funcionará como simulación de ecommerce.
+- Se asumirá que todos los productos son aptos sin TACC. 
