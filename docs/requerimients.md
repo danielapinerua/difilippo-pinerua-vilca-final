@@ -33,6 +33,8 @@
 
 ### 📋 Casos de Uso 
 
+![Diagrama de Casos de Uso](./diagramas/Casos%20de%20uso.jpeg)
+
 - **CU01:** Registrarse en el sistema
 - **CU02:** Iniciar sesión
 - **CU03:** Navegar y visualizar catálogo de productos
