@@ -27,9 +27,9 @@
 
 ## 📌 Casos de Uso
 
-### Actores 
-- **Cliente:** Puede registrarse, iniciar sesión, navegar el catálogo, filtrar por categoría, gestionar su wishlist, realizar pedidos y dejar reseñas en productos comprados. 
-- **Administrador:** Puede iniciar sesión, navegar el catálogo, gestionar (CRUD) productos y categorías, y actualizar el estado de los pedidos. 
+### 👤 Actores 
+**Cliente:** Puede registrarse, iniciar sesión, navegar el catálogo, filtrar por categoría, gestionar su wishlist, realizar pedidos y dejar reseñas en productos comprados. 
+**Administrador:** Puede iniciar sesión, navegar el catálogo, gestionar (CRUD) productos y categorías, y actualizar el estado de los pedidos. 
 
 - **CU01:** Registrarse en el sistema
 - **CU02:** Iniciar sesión
