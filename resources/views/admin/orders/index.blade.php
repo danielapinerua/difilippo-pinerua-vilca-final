@@ -75,7 +75,45 @@
     </div>
 
     <div class="admin-pagination-wrapper">
-      {{ $orders->links() }}
+      @if ($orders->hasPages())
+      <nav class="custom-pagination" role="navigation" aria-label="Navegación de paginación">
+          <div class="pagination-info">
+              <p>
+                  Mostrando 
+                  @if ($orders->firstItem())
+                      <strong>{{ $orders->firstItem() }}</strong> a <strong>{{ $orders->lastItem() }}</strong>
+                  @else
+                      {{ $orders->count() }}
+                  @endif
+                  de <strong>{{ $orders->total() }}</strong> resultados
+              </p>
+          </div>
+
+          <div class="pagination-links">
+              @if ($orders->onFirstPage())
+                  <span class="page-link disabled">&laquo; Anterior</span>
+              @else
+                  <a href="{{ $orders->previousPageUrl() }}" class="page-link" rel="prev">&laquo; Anterior</a>
+              @endif
+
+              @foreach(range(1, $orders->lastPage()) as $i)
+                  @if($i >= $orders->currentPage() - 2 && $i <= $orders->currentPage() + 2)
+                      @if ($i == $orders->currentPage())
+                          <span class="page-link active">{{ $i }}</span>
+                      @else
+                          <a href="{{ $orders->url($i) }}" class="page-link">{{ $i }}</a>
+                      @endif
+                  @endif
+              @endforeach
+
+              @if ($orders->hasMorePages())
+                  <a href="{{ $orders->nextPageUrl() }}" class="page-link" rel="next">Siguiente &raquo;</a>
+              @else
+                  <span class="page-link disabled">Siguiente &raquo;</span>
+              @endif
+          </div>
+      </nav>
+      @endif
     </div>
 
   </section>
